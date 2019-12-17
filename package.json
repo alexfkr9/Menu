@@ -1,8 +1,8 @@
 {
-  "name": "menu",
+  "name": "helloapp",
   "version": "1.0.0",
-  "description": "Order in the cafe",
-  "author": "",
+  "description": "First Angular 8 Project",
+  "author": "Eugene Popov <metanit.com>",
   "scripts": {
     "dev": "webpack-dev-server --hot --open",
     "build": "webpack"
