@@ -10,10 +10,12 @@ export class HttpService{
     constructor(private http: HttpClient){ }
        
     getUsers() : Observable<User[]> {
-        return this.http.get('users.json').pipe(map(data=>{
-            let usersList = data["userList"];
-            return usersList.map(function(user:any) {
-                return {dish: user.dish, quantity: user.quantity, price: user.price};
+        return this.http.get('oderList.json').pipe(map(data=>{
+            let oderList = data["oderList"];
+            return oderList.map(function(user:any) {
+                return {menuList: user.menuList, 
+                		userList: user.userList                		
+                		}; 
               });
         }));
     }

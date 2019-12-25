@@ -3,4 +3,7 @@ export class User {
     quantity: number;
     price: number;
     done: boolean;
+    name: string;
+    menuList: number;
+    userList: string;
 }
