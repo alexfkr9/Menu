@@ -16,7 +16,7 @@ module.exports = {
    module:{
        rules:[   //загрузчик для ts
            {
-               test: /\.ts$/, // определяем тип файлов
+               test: /\.ts$/, // определяем тип файлов               
                use: [
                 {
                     loader: 'awesome-typescript-loader',
@@ -24,7 +24,16 @@ module.exports = {
                   } ,
                    'angular2-template-loader'
                ]
-            }
+            },
+           {
+              test: /\.html$/,
+              loader: 'html-loader'
+            },
+            {
+              test: /\.css$/,
+              include: path.resolve(__dirname,'src/app'),
+              loader: 'raw-loader'
+            } 
        ]
    },
    plugins: [

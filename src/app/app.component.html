@@ -1,0 +1,90 @@
+<div> 
+ 
+<h2>Menu</h2>
+
+   <table class="table table-bordered">
+     <thead>        
+        <th>Блюдо</th>
+        <th>Цена</th>
+        <th>Размерность</th>
+        <th *ngFor="let User of userQuantity">
+            {{ User }} 
+        </th>
+                            
+     </thead>
+
+     <tbody>
+        
+       <td>                 
+        <tr *ngFor="let dish of arrayDish">
+            {{ dish }}             
+        </tr>        
+       </td>
+
+       <td>                 
+        <tr *ngFor="let price of arrayPrice">
+            {{ price }}             
+        </tr>        
+       </td>
+
+       <td>                 
+        <tr *ngFor="let unit of arrayUnit">
+            {{ unit }}             
+        </tr>        
+       </td>
+        
+        <td *ngFor="let userMenu of userMenuArray; let i = index"  class="mx-auto">         
+          <tr *ngFor="let userM of userMenu; let j = index">  
+            {{ userM }}
+            {{ arraySum[i][j] }}   
+          </tr>
+        </td>        
+      
+     </tbody>
+  </table>
+
+
+<br>
+<br>
+<br>
+
+ userList ---{{ userList | json}}<hr>
+
+userArrayshift --- {{ userArrayshift | json}}<hr> 
+
+ userArray --- {{ userArray | json }}<hr>
+
+ userMenuQuantity --- {{ userQuantity | json }}<hr>
+
+userMenu --- {{ userMenu | json}}<hr>
+
+userMenuArray --- {{ userMenuArray | json }}<hr>
+
+arrayPrice --- {{ arrayPrice | json }}<hr>
+
+arraySum --- {{ arraySum | json}}
+
+</div>   
+
+
+<!--      
+    <h3>{{title}}</h3>
+    <button (click)="changeTitle()">ChangeTitle</button>
+    <button (click)="title = 'Inline title'">ChangeTitle</button>
+    <div>
+      <input type="text" (input)="inputHandler($event)" [value]="title">
+    </div>
+    
+    <p> {{ arrayPrice  | json}} </p>
+    <p> {{ arrayQuantity | json}} </p>
+    <p> {{ arraySum | json}} </p>
+
+
+    <p> {{ body }} </p>
+<hr>
+    <p>Цена: {{ menuPrise | json }} </p>
+<hr>
+    <p>Кол.: {{ userQuantity | json }} </p>
+
+    <p> Сумма: {{ sum }} </p>
+-->

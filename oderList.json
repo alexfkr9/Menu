@@ -1,214 +1,64 @@
-{ 
-  "oderList":
-  [
+{
+  "menuList" : [
     {
-      "menuList" : [
-        {
-          "dish" : "Soup",
-          "prise" : 11,            
-          "unit": "portion"            
-        },
-        {
-          "dish" : "Salat",
-          "prise" : 12,
-          "unit": "weight"            
-        },
-        {
-          "dish" : "Морковь",
-          "prise" : 13,
-          "unit": "weight"            
-        },
-        {
-          "dish" : "Капуста",
-          "prise" : 14,
-          "unit": "weight"            
-        },
-        {
-          "dish" : "Octopus",
-          "prise" : 15,
-          "unit": "weight"            
-        },
-        {
-          "dish" : "Kasha",
-          "prise" : 14,
-          "unit": "portion"            
-        },
-        {
-          "dish" : "Hleb",
-          "prise" : 16,
-          "unit": "portion"            
-        },
-        {
-          "dish" : "Borsh",
-          "prise" : 17,
-          "unit": "portion"            
-        },
-        {
-          "dish" : "Kalmar",
-          "prise" : 18,
-          "unit": "weight"            
-        },
-        {
-          "dish" : "Aple",
-          "prise" : 19,
-          "unit": "portion"            
-        },
-        {
-          "dish" : "Perec",
-          "prise" : 20,
-          "unit": "weight"            
-        }
-      ]
+      "dish" : "Soup",
+      "prise" : 17,            
+      "unit": "portion"            
     },
     {
-      "userList" : [
-        {  
-        "name" : "Денис",
-        "menu" : [
-          {
-            "dish" : "Soup",                
-            "quantity": 1                 
-          },
-          {
-            "dish" : "Salat",                
-            "quantity": 100                  
-          },
-          {
-            "dish" : "Морковь",                
-            "quantity": 0            
-          },
-          {
-            "dish" : "Капуста",                
-            "quantity": 0
-          },
-          {
-            "dish" : "Octopus",                
-            "quantity": 0           
-          },
-          {
-            "dish" : "Kasha",
-            "quantity": 2
-          },
-          {
-            "dish" : "Hleb",
-            "quantity": 1
-          },
-          {
-            "dish" : "Borsh",
-            "quantity": 0
-          },
-          {
-            "dish" : "Kalmar",
-            "quantity": 150
-          },
-          {
-            "dish" : "Aple",
-            "quantity": 2
-          },
-          {
-            "dish" : "Perec",
-            "quantity": 150
-          } ]
-        },
-
-        {  
-        "name" : "Андрей",
-        "menu" : [
-          {
-            "dish" : "Soup",                
-            "quantity": 0                 
-          },
-          {
-            "dish" : "Salat",                
-            "quantity": 250                  
-          },
-          {
-            "dish" : "Морковь",                
-            "quantity": 150            
-          },
-          {
-            "dish" : "Капуста",                
-            "quantity": 120
-          },
-          {
-            "dish" : "Octopus",                
-            "quantity": 0           
-          },
-          {
-            "dish" : "Kasha",
-            "quantity": 1
-          },
-          {
-            "dish" : "Hleb",
-            "quantity": 3
-          },
-          {
-            "dish" : "Borsh",
-            "quantity": 1
-          },
-          {
-            "dish" : "Kalmar",
-            "quantity": 0
-          },
-          {
-            "dish" : "Aple",
-            "quantity": 3
-          },
-          {
-            "dish" : "Perec",
-            "quantity": 250
-          } ]
-        },
-
-        {  
-        "name" : "Елена",
-        "menu" : [
-          {
-            "dish" : "Soup",                
-            "quantity": 1                 
-          },
-          {
-            "dish" : "Salat",                
-            "quantity": 0                  
-          },
-          {
-            "dish" : "Морковь",                
-            "quantity":  220           
-          },
-          {
-            "dish" : "Капуста",                
-            "quantity": 0
-          },
-          {
-            "dish" : "Octopus",                
-            "quantity": 80         
-          },
-          {
-            "dish" : "Kasha",
-            "quantity": 2
-          },
-          {
-            "dish" : "Hleb",
-            "quantity": 1
-          },
-          {
-            "dish" : "Borsh",
-            "quantity": 0
-          },
-          {
-            "dish" : "Kalmar",
-            "quantity": 0
-          },
-          {
-            "dish" : "Aple",
-            "quantity": 2
-          },
-          {
-            "dish" : "Perec",
-            "quantity": 0
-          } ]
-        }
-      ]  
+      "dish" : "Salat",
+      "prise" : 12,
+      "unit": "weight"            
+    },
+    {
+      "dish" : "Морковь",
+      "prise" : 13,
+      "unit": "weight"            
+    },
+    {
+      "dish" : "Капуста",
+      "prise" : 14,
+      "unit": "weight"            
+    },
+    {
+      "dish" : "Octopus",
+      "prise" : 15,
+      "unit": "weight"            
+    },
+    {
+      "dish" : "Kasha",
+      "prise" : 14,
+      "unit": "portion"            
+    },
+    {
+      "dish" : "Hleb",
+      "prise" : 16,
+      "unit": "portion"            
+    },
+    {
+      "dish" : "Borsh",
+      "prise" : 17,
+      "unit": "portion"            
+    },
+    {
+      "dish" : "Kalmar",
+      "prise" : 18,
+      "unit": "weight"            
+    },
+    {
+      "dish" : "Aple",
+      "prise" : 19,
+      "unit": "portion"            
+    },
+    {
+      "dish" : "Perec",
+      "prise" : 20,
+      "unit": "weight"            
     }
-  ] 
+  ],    
+  "userList" : [
+    ["Денис", 2, 100, 0, 0, 0, 2, 1, 0, 150, 2, 150],
+    ["Вася", 1, 150, 0, 4, 0, 3, 1, 0, 300, 2, 50],
+    ["Петя", 3, 250, 2, 0, 0, 50, 1, 0, 150, 2, 200]
+  ]
 }

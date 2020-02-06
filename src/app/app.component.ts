@@ -1,90 +1,76 @@
 import { Component, OnInit} from '@angular/core';
 import { HttpService} from './http.service';
-import {User} from './user';
+// import {User} from './user';
+
    
 @Component({
     selector: 'my-app',
-    template: `
-   <h2>Menu</h2>
-    <table class="table">
-     <thead>
-       
-         <th>Блюдо</th>
-         <th>Цена</th>
-         <th>Размерность</th>
-         <th>
-            <div *ngFor="let user of users; let i = index;">
-              <td *ngFor="let userList of users[i].userList; let j = index;">
-              {{users[i].userList[j].name}}           
-              </td>          
-            </div>
-          </th>
-       
-     </thead>
-
-     <tbody>
-        
-       <td>        
-        <div *ngFor="let user of users; let i = index;">          
-          <tr *ngFor="let menuList of users[i].menuList; let j = index;">
-              {{users[i].menuList[j].dish}}              
-          </tr>          
-        </div>
-       </td>
-
-       <td>
-        <div *ngFor="let user of users; let i = index;">          
-          <tr *ngFor="let menuList of users[i].menuList; let j = index;">
-              {{users[i].menuList[j].prise}}              
-          </tr>          
-        </div>
-       </td>
-
-       <td>
-        <div *ngFor="let user of users; let i = index;">          
-          <tr *ngFor="let menuList of users[i].menuList; let j = index;">
-              {{users[i].menuList[j].unit}}              
-          </tr>          
-        </div>
-       </td>
-    
-     
-        <div *ngFor="let user of users; let i = index;">          
-          <td *ngFor="let userList of users[i].userList; let j = index;">
-            <!-- {{users[i].userList[j].name}} -->
-            <tr *ngFor="let menu of users[i].userList[j].menu; let l = index;">
-              <input type="" name="" placeholder="{{users[i].userList[j].menu[l].quantity}}"> 
-               
-            </tr>        
-          </td>          
-        </div>
-        
-
-     </tbody>
-  </table> 
-
-
-  
- <!-- {{users[i].menuList[j].prise}} 
- {{users[0].menuList[1].dish}} <br>
- {{users[0].menuList[1].prise}} <br>
- {{users[0].menuList[1].unit}} <br>
- {{users[1].userList[1].name}} <br>
- {{users[1].userList[1].menu[0].dish}} <br>
- {{users[1].userList[1].menu[1].quantity}} <br>-->          
-                
-           `,
-    providers: [HttpService]
+    templateUrl: './app.component.html',
+    providers: [HttpService] 
 })
 export class AppComponent implements OnInit { 
-   
-
-    users: User[]=[];    
-     
-    constructor(private httpService: HttpService){}
+    
+        
+    menuList: any;    
+    userList: any;
+    nUser: number;
+    nMenu: number;    
+    userMenuArray: any =[];
+    menuArray: any =[];
+    userArray: any =[];        
+    arrayDish: any =[];
+    arrayPrice: any =[];
+    arrayUnit: any =[];    
+    arraySum: any =[];
+    sum: any =[];
+    userMenu: any =[];    
+    userQuantity: any =[];
+    userArrayshift: any =[];   
+    //users: User[]=[];
+    
+    constructor(private httpService: HttpService){};
       
     ngOnInit(){
-          
-        this.httpService.getUsers().subscribe(data => this.users=data);        
+       // this.httpService.getUsers().subscribe(data => this.users=data);
+       this.getBooksAndMovies();       
     };
+
+    getBooksAndMovies() {
+      this.httpService.getBooksAndMovies().subscribe(
+        data => {  
+
+          // create array of menuList
+          this.menuArray = data.menuList;
+          this.nMenu = this.menuArray.length;
+
+          for( var i = 0; this.menuArray[i]; i++ ){
+            this.arrayDish[i] = this.menuArray[i].dish;
+            this.arrayPrice[i] = this.menuArray[i].prise;
+            this.arrayUnit[i] = this.menuArray[i].unit;
+          }
+          
+          // create array of user
+          this.userList = data.userList.slice();
+          this.nUser = this.userList.length;                       
+          
+          for( var i = 0; i < this.nUser; i++) {
+            this.userArray = this.userList[i].slice();
+            this.userQuantity[i] = this.userArray[0];    // create array of user name            
+            this.userArrayshift[i] = this.userList[i].slice();
+            this.userArrayshift[i].shift();              // delete user name
+            this.userMenu = this.userArrayshift[i];
+            this.userMenuArray[i] = this.userArrayshift[i];     // create array of user menu  
+              
+              // counting of user menu cost
+              for (var j=0; j < this.nMenu; j++) { 
+                this.sum[j] = this.arrayPrice[j]*this.userMenu[j];
+                
+              }
+            this.arraySum[i] = this.sum.slice();
+          }
+
+        }     
+      )
+    }
 }
+ 
