@@ -15,9 +15,12 @@ form {
 }
 
 input {
-	max-width: 60px;
+	max-width: 40px;
+	border: none;
+	/*outline: none;*/
+	color: #181;
 }
 
 td {	
-	text-align: center;
+	/*text-align: center;*/
 }

@@ -5,5 +5,6 @@ export class User {
     // done: boolean;
     // name: string;
     // menuList: number;
-    // userList: string;    
+    // userList: string;
+    
 }

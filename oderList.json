@@ -3,57 +3,68 @@
     {
       "dish" : "Soup",
       "prise" : 17,            
-      "unit": "portion"            
+      "unit": "п",
+      "weight": 150            
     },
     {
       "dish" : "Salat",
       "prise" : 12,
-      "unit": "weight"            
+      "unit": "г",
+      "weight": 100           
     },
     {
       "dish" : "Морковь",
       "prise" : 13,
-      "unit": "weight"            
+      "unit": "г",
+      "weight": 100            
     },
     {
       "dish" : "Капуста",
       "prise" : 14,
-      "unit": "weight"            
+      "unit": "г",
+      "weight": 100            
     },
     {
       "dish" : "Octopus",
       "prise" : 15,
-      "unit": "weight"            
+      "unit": "г",
+      "weight": 100            
     },
     {
       "dish" : "Kasha",
       "prise" : 14,
-      "unit": "portion"            
+      "unit": "п",
+      "weight": 200            
     },
     {
       "dish" : "Hleb",
       "prise" : 16,
-      "unit": "portion"            
+      "unit": "п",
+      "weight": 200            
     },
     {
       "dish" : "Borsh",
       "prise" : 17,
-      "unit": "portion"            
+      "unit": "п",
+      "weight": 100            
     },
     {
       "dish" : "Kalmar",
       "prise" : 18,
-      "unit": "weight"            
+      "unit": "г",
+      "weight": 100            
     },
     {
       "dish" : "Aple",
       "prise" : 19,
-      "unit": "portion"            
+      "unit": "п",
+      "weight": 150            
     },
     {
       "dish" : "Perec",
       "prise" : 20,
-      "unit": "weight"            
+      "unit": "г",
+      "weight": 100          
     }
   ],    
   "userList" : [

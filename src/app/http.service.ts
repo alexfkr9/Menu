@@ -9,7 +9,7 @@ export class HttpService {
    
     constructor(private http: HttpClient){ }
 
-    getBooksAndMovies() {
+    getData() {
         return this.http.get('oderList.json')    
     }
        
