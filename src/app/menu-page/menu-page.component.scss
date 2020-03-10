@@ -1,0 +1,29 @@
+div {
+	background: url(./bg.jpg) no-repeat;
+	background-size: cover;	
+}
+
+h2 {
+  text-align: center;
+}
+table th
+ {
+  padding: 1rem;
+  text-align: left;
+  // background: var(--light-color-v);
+}
+
+table tr {
+  // background: var(--light-color);
+}
+
+form {
+  padding: 20px;
+}
+
+input {
+  max-width: 40px;
+  border: none;
+  outline: none;  
+  background: #ffa;  
+}

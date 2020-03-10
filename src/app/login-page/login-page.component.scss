@@ -1,0 +1,25 @@
+* {
+	margin: 10px;
+}
+
+body {
+	background: url(./bg.jpg) no-repeat;
+	background-size: cover;	
+	text-align: center;
+}
+
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+input {
+  max-width: 80px;
+  border: none;
+  outline: none;  
+  background: #ffa;  
+}
+
+.but {
+	margin-top: 100px;
+}
