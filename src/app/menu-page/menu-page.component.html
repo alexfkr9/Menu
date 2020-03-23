@@ -5,7 +5,8 @@
      <thead>        
         <th>Блюдо</th>
         <th>Цена</th>
-        <th>Размерность</th>                    
+        <th>Размерность</th>
+        <th>Кол./Цена</th>          
                              
      </thead>
 
@@ -20,7 +21,7 @@
 
        <td>                 
         <tr *ngFor="let price of arrayPrice">
-            {{ price }}             
+            {{ price }} грн           
         </tr>        
        </td>
 
@@ -36,9 +37,9 @@
         <td>         
           <tr *ngFor="let userM of userMenuArray[1]; let j = index">  
             <input [disabled]="disabled" type="number" [(ngModel)] = "userMenuArray[1][j]" (ngModelChange)="changeHandler(1,j)" />
-              {{ arrayUnit[j] }}             
-              <!-- {{ arrayPrice[j] * userMenuArray[i][j] }} -->
-               {{ arraySum[1][j] }}              
+              {{ arrayUnit[j] }}        
+              
+              {{ arraySum[1][j] }}              
           </tr>
         </td>
       </tr>        
@@ -47,12 +48,22 @@
         <td>Итого</td>
         <td></td>
         <td></td>
-        <td> {{ totalVal[1] }} </td>            
+        <td> {{ totalVal[1] }} грн</td>            
+      </tr>
+      <tr>
+        <td><button routerLink="/" class="btn btn-warning">Выйти</button></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button class="btn btn-warning">Заказать</button>
+        </td>        
       </tr>
 
      </tbody>
   </table>
 
+  
+  
 </div>
 
 

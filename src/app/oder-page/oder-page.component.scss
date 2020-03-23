@@ -1,21 +1,34 @@
-table th
- {
-  padding: 1rem;
-  text-align: left;
-  background: var(--light-color-v);
+* {  
+  font-weight: 600;  
+}
+
+table { font-size: 16px; }
+
+table th {   
+  /*background: var(--light-color-v);*/
 }
 
 table tr {
-  background: var(--light-color);
-}
-
-form {
-  padding: 20px;
+  /*background: var(--light-color);*/
 }
 
 input {
-  max-width: 40px;
+  max-width: 50px;
   border: none;
   outline: none;
-  color: #181;
+  color: #181;  
+}
+
+div, input, button {  
+  background: url(./bg.jpg) no-repeat;
+}
+
+div {	
+	background-size: cover;	
+	text-align: center;  
+}
+
+
+button {
+  padding: 5px 10px;
 }

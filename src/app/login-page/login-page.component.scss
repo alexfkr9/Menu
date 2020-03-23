@@ -1,25 +1,49 @@
 * {
-	margin: 10px;
+	margin: 0;
+  padding: 0;  
 }
 
-body {
+div {
 	background: url(./bg.jpg) no-repeat;
 	background-size: cover;	
-	text-align: center;
+	text-align: center;  
+}
+
+header {
+  padding: 60px 0;
 }
 
 form {
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
 }
 
-input {
-  max-width: 80px;
+input {  
   border: none;
   outline: none;  
-  background: #ffa;  
+  background: #ffa;
+  margin: 6px 5px;  
 }
 
-.but {
-	margin-top: 100px;
+.form-control {
+  position: relative;
+  margin-bottom: 60px; 
+}
+
+.validation {  
+  top: 50px;  
+}
+
+button {
+	margin-bottom: 40px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+small {  
+  position: relative;
+  height: 100px;
+  width: 100px;
+  color: #a00;
+  padding: 100px, auto;
 }
