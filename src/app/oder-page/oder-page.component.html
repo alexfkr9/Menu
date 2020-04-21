@@ -6,7 +6,7 @@
         <th>Блюдо</th>
         <th>Цена</th>
         <th>Размерность</th>
-        <th *ngFor="let User of userQuantity ; let i = index">
+        <th *ngFor="let User of userQuantity; let i = index">
            <button (click)="activUser()"> {{ User }} </button>
         </th>
         <th>Сумма<br>заказа</th>        
@@ -64,6 +64,7 @@
      </tbody>
   </table>
 
+  <app-gallery></app-gallery>
 </div>
 
 

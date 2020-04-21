@@ -4,15 +4,20 @@ import {MenuPageComponent} from './menu-page/menu-page.component';
 import {LoginPageComponent} from './login-page/login-page.component';
 import {OderPageComponent} from './oder-page/oder-page.component';
 
+import {CreatePageComponent} from './create-page/create-page.component';
+import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
+import {GalleryComponent} from './gallery/gallery.component';
+
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
-const routes: Routes = [
+const routes: Routes = [	
 	{path: '', component: LoginPageComponent},
-	{path: 'post/:id', component: MenuPageComponent},
-  	{path: '**', component: OderPageComponent},
-
-    // {path: 'post/:21', component: MainLayoutComponent}  
+	{path: 'menu', component: MenuPageComponent},
+  {path: 'oder', component: OderPageComponent},
+  {path: 'create', component: CreatePageComponent},
+  {path: 'dashboard', component: DashboardPageComponent},
+  {path: 'gallery', component: GalleryComponent}  
 ];
 
 @NgModule({

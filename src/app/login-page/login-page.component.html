@@ -47,13 +47,24 @@
   </div>
 
     <button
-    [routerLink] = "['post/:id']" 
+     
     type="submit"
     class="btn btn-warning "
     [disabled]="form.invalid"
   >Войти в меню</button>
 
      <br>   
-    <button [routerLink] = "['**']" class="btn btn-warning btn-sm">Открыть весь заказ</button>
+    <button [routerLink] = "['oder']" class="btn btn-warning btn-sm">Открыть весь заказ</button>
 </form>
+
+<br>   
+    <button [routerLink] = "['create']" class="btn btn-warning btn-sm m-2">Добавить в меню
+    </button>
+
+
+    <button [routerLink] = "['dashboard']" class="btn btn-warning btn-sm m-2">Посмотреть меню</button>
+
+    <button [routerLink] = "['gallery']" class="btn btn-warning btn-sm m-2">Галлерея</button>
 </div>
+
+<!-- [routerLink] = "['post/:id']" -->

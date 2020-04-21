@@ -1,0 +1,75 @@
+{ "posts" : {
+  "menuList" : [
+    {
+      "dish" : "Soup",
+      "prise" : 17,            
+      "unit": "п",
+      "weight": 150            
+    },
+    {
+      "dish" : "Salat",
+      "prise" : 12,
+      "unit": "г",
+      "weight": 100           
+    },
+    {
+      "dish" : "Морковь",
+      "prise" : 13,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "dish" : "Капуста",
+      "prise" : 14,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "dish" : "Octopus",
+      "prise" : 15,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "dish" : "Kasha",
+      "prise" : 14,
+      "unit": "п",
+      "weight": 200            
+    },
+    {
+      "dish" : "Hleb",
+      "prise" : 16,
+      "unit": "п",
+      "weight": 200            
+    },
+    {
+      "dish" : "Borsh",
+      "prise" : 17,
+      "unit": "п",
+      "weight": 100            
+    },
+    {
+      "dish" : "Kalmar",
+      "prise" : 18,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "dish" : "Aple",
+      "prise" : 19,
+      "unit": "п",
+      "weight": 150            
+    },
+    {
+      "dish" : "Perec",
+      "prise" : 20,
+      "unit": "г",
+      "weight": 100          
+    }
+  ],    
+  "userList" : [
+    ["Денис", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ["Петя", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  ]
+}
+}

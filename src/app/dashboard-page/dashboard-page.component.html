@@ -1,0 +1,71 @@
+<div> 
+<h2>Menu {{ userQuantity[0] }}</h2>
+  
+   <table class="table table-bordered">
+     <thead>        
+        <th>Блюдо</th>
+        <th>Цена</th>
+        <th>Размерность</th>
+        <th>Кол./Цена</th>          
+                             
+     </thead>
+
+     <tbody>
+      
+      <tr>  
+       <td>                 
+        <tr *ngFor="let dish of arrayDish">
+            {{ dish }}           
+        </tr>        
+       </td>
+
+       <td>                 
+        <tr *ngFor="let price of arrayPrice">
+            {{ price }} грн           
+        </tr>        
+       </td>
+
+       <td>                 
+        <tr *ngFor="let unit of arrayUnit; let i = index">
+            {{ arrayWeight[i] }}
+            {{ unit }}             
+        </tr>        
+       </td>
+      
+      
+      
+        <td>         
+          <tr *ngFor="let userM of userMenuArray[1]; let j = index">  
+            <input [disabled]="disabled" type="number" [(ngModel)] = "userMenuArray[1][j]" (ngModelChange)="changeHandler(1,j)" />
+              {{ arrayUnit[j] }}        
+              
+              {{ arraySum[1][j] }}              
+          </tr>
+        </td>
+      </tr>        
+
+      <tr>
+        <td>Итого</td>
+        <td></td>
+        <td></td>
+        <td> {{ totalVal[1] }} грн</td>            
+      </tr>
+      <tr>
+        <td><button routerLink="/" class="btn btn-warning">Выйти</button></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button class="btn btn-warning">Заказать</button>
+        </td>        
+      </tr>
+
+     </tbody>
+  </table>  
+
+<button (click)="remove()">Удалить </button>
+
+</div>
+
+
+
+<app-create-page></app-create-page>
