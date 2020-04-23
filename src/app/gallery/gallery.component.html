@@ -4,17 +4,20 @@
 	</div>
 
 	<div class="col-md-12">
-		<button class="btn btn-lg btn-info" [class.active]="filterBy === 'all'" (click)="filterBy = 'all'">Все</button>
-		<button class="btn btn-lg btn-info" [class.active]="filterBy === 'voda'" (click)="filterBy = 'voda'">Первые</button>
-		<button class="btn btn-lg btn-info" [class.active]="filterBy === 'fire'" (click)="filterBy = 'fire'">Вторые</button>
-		<button class="btn btn-lg btn-info" [class.active]="filterBy === 'boats'" (click)="filterBy = 'boats'">Десерты</button>
+		<button class="btn btn-info" [class.active]="filterBy === 'all'" (click)="filterBy = 'all'">Все</button>
+		<button class="btn btn-warning" [class.active]="filterBy === 'first'" (click)="filterBy = 'first'">Первые</button>
+		<button class="btn btn-warning" [class.active]="filterBy === 'second'" (click)="filterBy = 'second'">Вторые</button>
+		<button class="btn btn-warning" [class.active]="filterBy === 'salads'" (click)="filterBy = 'salads'">Салаты</button>
+		<button class="btn btn-warning" [class.active]="filterBy === 'drink'" (click)="filterBy = 'drink'">Напитки</button>
 	</div>
 
 	<ul id="thumbnailList">
-		<li *ngFor="let image of (images | imageFilter:filterBy)">
-			<a href="">
-				<img src=" {{ image.url }}" class="tn" width="200" height="150">
-			</a>
+		<li class="" *ngFor="let image of (images | imageFilter:filterBy)">
+			<div class="tn">
+				<a href=""><img src="{{ image.url }}" class=""></a>
+				<h5>{{ image.dish }}</h5>
+				<p>Цена: {{ image.prise }} грн / {{ image.weight }}{{ image.unit }}</p>				
+			</div>
 		</li>
 	</ul>
 

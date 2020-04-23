@@ -12,9 +12,107 @@ export class ImageService {
 
 }
 
-const IMAGES = [
-	{"id":1, "category": "voda", "caption": "View from 1...", "url":"assets/img/bulba.jpg"},
-	{"id":2, "category": "voda", "caption": "View from 2...", "url":"assets/img/more.jpg"},
-	{"id":3, "category": "fire", "caption": "View from 3...", "url":"assets/img/fire.jpg"},
-	{"id":4, "category": "boats", "caption": "View from 4...", "url":"assets/img/osin.jpg"}
-]
+const IMAGES = [	
+  
+  
+    {
+      "id":1,
+      "category": "first", 
+      "dish" : "Борщ",
+      "url":"assets/img/borsh.jpg",
+      "prise" : 15,            
+      "unit": "п",
+      "weight": 1           
+    },
+    {
+      "id":2,
+      "category": "first", 
+      "dish" : "Суп",
+      "url":"assets/img/soup.jpg",
+      "prise" : 17,
+      "unit": "п",
+      "weight": 1           
+    },
+    {
+      "id":3,
+      "category": "second", 
+      "dish" : "Мясо",
+      "url":"assets/img/steak.jpg",
+      "prise" : 20,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "id":4,
+      "category": "second", 
+      "dish" : "Рыба",
+      "url":"assets/img/fish.jpg",
+      "prise" : 18,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "id":5,
+      "category": "second", 
+      "dish" : "Картошка",
+      "url":"assets/img/potato.jpg",
+      "prise" : 8,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "id":6,
+      "category": "salads", 
+      "dish" : "Оливье",
+      "url":"assets/img/oliv.jpg",
+      "prise" : 14,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "id":7,
+      "category": "salads", 
+      "dish" : "Селедка под шубой",
+      "url":"assets/img/shuba.jpg",
+      "prise" : 16,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "id":8,
+      "category": "salads", 
+      "dish" : "Помидоры, огурцы",
+      "url":"assets/img/tomato.jpg",
+      "prise" : 10,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "id":9,
+      "category": "drink", 
+      "dish" : "Сок",
+      "url":"assets/img/juice.jpg",
+      "prise" : 14,
+      "unit": "л",
+      "weight": 0.3            
+    },
+    {
+      "id":10,
+      "category": "drink", 
+      "dish" : "Пиво",
+      "url":"assets/img/beer.jpg",
+      "prise" : 20,
+      "unit": "л",
+      "weight": 0.5            
+    },
+    {
+      "id":11,
+      "category": "drink", 
+      "dish" : "Вино",
+      "url":"assets/img/wine.jpg",
+      "prise" : 20,
+      "unit": "л",
+      "weight": 0.1          
+    }
+  
+  ]

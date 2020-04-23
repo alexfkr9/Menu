@@ -1,75 +1,108 @@
 {
   "menuList" : [
     {
-      "dish" : "Soup",
-      "prise" : 17,            
+      "id":1,
+      "category": "first", 
+      "dish" : "Борщ",
+      "url":"assets/img/borsh.jpg",
+      "prise" : 15,            
       "unit": "п",
-      "weight": 150            
+      "weight": 1           
     },
     {
-      "dish" : "Salat",
-      "prise" : 12,
-      "unit": "г",
-      "weight": 100           
-    },
-    {
-      "dish" : "Морковь",
-      "prise" : 13,
-      "unit": "г",
-      "weight": 100            
-    },
-    {
-      "dish" : "Капуста",
-      "prise" : 14,
-      "unit": "г",
-      "weight": 100            
-    },
-    {
-      "dish" : "Octopus",
-      "prise" : 15,
-      "unit": "г",
-      "weight": 100            
-    },
-    {
-      "dish" : "Kasha",
-      "prise" : 14,
-      "unit": "п",
-      "weight": 200            
-    },
-    {
-      "dish" : "Hleb",
-      "prise" : 16,
-      "unit": "п",
-      "weight": 200            
-    },
-    {
-      "dish" : "Borsh",
+      "id":2,
+      "category": "first", 
+      "dish" : "Суп",
+      "url":"assets/img/soup.jpg",
       "prise" : 17,
       "unit": "п",
+      "weight": 1           
+    },
+    {
+      "id":3,
+      "category": "second", 
+      "dish" : "Мясо",
+      "url":"assets/img/steak.jpg",
+      "prise" : 20,
+      "unit": "г",
       "weight": 100            
     },
     {
-      "dish" : "Kalmar",
+      "id":4,
+      "category": "second", 
+      "dish" : "Рыба",
+      "url":"assets/img/fish.jpg",
       "prise" : 18,
       "unit": "г",
       "weight": 100            
     },
     {
-      "dish" : "Aple",
-      "prise" : 19,
-      "unit": "п",
-      "weight": 150            
+      "id":5,
+      "category": "second", 
+      "dish" : "Картошка",
+      "url":"assets/img/potato.jpg",
+      "prise" : 8,
+      "unit": "г",
+      "weight": 100            
     },
     {
-      "dish" : "Perec",
-      "prise" : 20,
+      "id":6,
+      "category": "salads", 
+      "dish" : "Оливье",
+      "url":"assets/img/oliv.jpg",
+      "prise" : 14,
       "unit": "г",
-      "weight": 100          
+      "weight": 100            
+    },
+    {
+      "id":7,
+      "category": "salads", 
+      "dish" : "Селедка под шубой",
+      "url":"assets/img/shuba.jpg",
+      "prise" : 16,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "id":8,
+      "category": "salads", 
+      "dish" : "Помидоры, огурцы",
+      "url":"assets/img/tomato.jpg",
+      "prise" : 10,
+      "unit": "г",
+      "weight": 100            
+    },
+    {
+      "id":9,
+      "category": "drink", 
+      "dish" : "Сок",
+      "url":"assets/img/juice.jpg",
+      "prise" : 14,
+      "unit": "л",
+      "weight": 0.3            
+    },
+    {
+      "id":10,
+      "category": "drink", 
+      "dish" : "Пиво",
+      "url":"assets/img/beer.jpg",
+      "prise" : 20,
+      "unit": "л",
+      "weight": 0.5            
+    },
+    {
+      "id":11,
+      "category": "drink", 
+      "dish" : "Вино",
+      "url":"assets/img/wine.jpg",
+      "prise" : 20,
+      "unit": "л",
+      "weight": 0.1          
     }
   ],    
   "userList" : [
-    ["Денис", 2, 100, 0, 0, 0, 2, 1, 0, 150, 2, 150],
-    ["Вася", 1, 150, 0, 4, 0, 3, 1, 0, 300, 2, 50],
-    ["Петя", 3, 250, 2, 0, 0, 50, 1, 0, 150, 2, 200]
+    ["Денис", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ["Вася", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    ["Петя", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   ]
 }

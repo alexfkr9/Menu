@@ -1,7 +1,6 @@
-
 import { Component, OnInit} from '@angular/core';
-import { HttpService} from './http.service';
- 
+import { HttpService} from '../shared/http.service';
+  
    
 @Component({
     selector: 'app-oder-page',

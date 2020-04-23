@@ -9,7 +9,7 @@
     [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
     >
         <label for="email">Email:</label>
-        <input id="email" type="email" formControlName="email">
+        <input id="email" type="email" formControlName="email" placeholder="a@mail.ru">
         <div
           *ngIf="form.get('email').touched && form.get('email').invalid"
           class="validation"
@@ -28,7 +28,7 @@
     [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
   >
     <label for="password">Пароль:</label>
-    <input id="password" type="password" formControlName="password">
+    <input id="password" type="password" formControlName="password" placeholder="111111">
     <div
       class="validation"
       *ngIf="form.get('password').touched && form.get('password').invalid"
@@ -62,8 +62,10 @@
     </button>
 
 
-    <button [routerLink] = "['dashboard']" class="btn btn-warning btn-sm m-2">Посмотреть меню</button>
+    <button [routerLink] = "['menu']" class="btn btn-warning btn-sm m-2">Меню локально</button>
 
+    <button [routerLink] = "['dashboard']" class="btn btn-warning btn-sm m-2">Меню в сети</button>
+<br>
     <button [routerLink] = "['gallery']" class="btn btn-warning btn-sm m-2">Галлерея</button>
 </div>
 
