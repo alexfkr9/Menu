@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ImageService } from '../shared/image.service'
 
 @Component({
@@ -17,6 +17,14 @@ export class GalleryComponent implements OnInit {
   	) { 
   		this.images = this.imageService.getImages();
   		console.log(this.images)
+  }
+
+  @Input() priceGal: any;
+  @Input() nDishGal: any;
+
+  @Output() onChanged = new EventEmitter<any>();
+    change(increased:any) {      
+      this.onChanged.emit(increased)         
   }
 
   ngOnInit(): void {

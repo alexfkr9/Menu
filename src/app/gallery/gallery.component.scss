@@ -1,11 +1,17 @@
-* {
-  /*box-sizing: border-box;
+@import "../app.component.scss";
+
+* {  
   margin: 0;
-  padding: 0;
-  font-family: "Garamond", Times, sans-serif;
-  font-weight: 700;
-  font-size: 20px;*/
+  padding: 0;   
 }
+
+.logo {
+	color: #050;
+}
+
+/*nav button {
+	flex-direction: column;
+}*/
 
 ul {
 	display: flex;
@@ -13,22 +19,27 @@ ul {
 	padding: 0;
 	width: 1200px;
 	margin: 20px auto;
-	list-style-type: none;
+	list-style-type: none;	
 }
 
-
-.tn {
+.ticket {
 	margin: 6px 6px;
 	border: 4px solid #eee;
+	border-radius: 8px;
 	box-shadow: #555 1px 1px 5px 1px;
 	width: 180px;
-	height: 250px;	
-	
+	height: 240px;	
 }
 
 img {		
 	width: 100%;
 	height: 100px;
+	cursor: cell;
+}
+
+input {
+	width: 70px;
+	background: #ffc;
 }
 
 h5 {
@@ -41,6 +52,14 @@ p {
 	font-weight: 600;
 }
 
-button {
-	margin: 5px;
+@media screen and (max-width: 576px) {	
+	button {
+		display: block;
+		margin: 2 auto;
+		width: 100%;				
+	}
+
+	.logo {
+		text-align: center;
+	}	
 }

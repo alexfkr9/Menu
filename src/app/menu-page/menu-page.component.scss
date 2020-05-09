@@ -1,29 +1,22 @@
+@import "../app.component.scss";
+
 div {
 	background: url(./bg.jpg) no-repeat;
-	background-size: cover;	
+	background-size: cover;    
 }
 
-h2 {
+h2, h3 {
   text-align: center;
-}
-table th
- {
-  padding: 1rem;
-  text-align: left;
-  // background: var(--light-color-v);
+  color: #050;
 }
 
-table tr {
-  // background: var(--light-color);
-}
-
-form {
-  padding: 20px;
+th, td, tr { 
+  padding: 0 2px; 
 }
 
 input {
   max-width: 40px;
-  border: none;
-  outline: none;  
-  background: #ffa;  
+  max-height: 23px;  
+  /*outline: none;  */
+  background: #ffc; 
 }

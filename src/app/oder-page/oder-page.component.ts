@@ -92,6 +92,7 @@ export class OderPageComponent implements OnInit {
         
     }
 
+      // Расчет стоимости
       changeHandler(a: number,b: number) {                
           this.arraySum[a][b] = this.userMenuArray[a][b]*this.arrayPrice[b];
           this.totalVal[a] = this.arraySum[a].reduce(function(sum: number, elem: number) { return sum + elem;}, 0);

@@ -1,16 +1,10 @@
+@import "../app.component.scss";
+
 * {  
   font-weight: 600;  
 }
 
 table { font-size: 16px; }
-
-table th {   
-  /*background: var(--light-color-v);*/
-}
-
-table tr {
-  /*background: var(--light-color);*/
-}
 
 input {
   max-width: 50px;
@@ -26,9 +20,4 @@ div, input, button {
 div {	
 	background-size: cover;	
 	text-align: center;  
-}
-
-
-button {
-  padding: 5px 10px;
 }

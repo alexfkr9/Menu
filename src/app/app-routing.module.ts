@@ -16,8 +16,7 @@ const routes: Routes = [
 	{path: 'menu', component: MenuPageComponent},
   {path: 'oder', component: OderPageComponent},
   {path: 'create', component: CreatePageComponent},
-  {path: 'dashboard', component: DashboardPageComponent},
-  {path: 'gallery', component: GalleryComponent}  
+  {path: 'dashboard', component: DashboardPageComponent}  
 ];
 
 @NgModule({
