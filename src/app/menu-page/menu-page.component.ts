@@ -33,8 +33,7 @@ export class MenuPageComponent implements OnInit {
     
     priceGal: any=[];
 
-    nDishGal: any=[];    
-
+    nDishGal: any=[];  
 
     
     
@@ -44,9 +43,10 @@ export class MenuPageComponent implements OnInit {
       
     ngOnInit(){
        // this.httpService.getUsers().subscribe(data => this.users=data);
-       
-       this.getData(1);      
+
+       this.getData(1);
     };
+
  
     getData(event: any) {
       this.httpService.getData().subscribe(

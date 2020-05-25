@@ -1,15 +1,16 @@
-<div>
+<div class="d-flex flex-colum">
 <div class="login">
 <form [formGroup]="form" (ngSubmit)="submit()">
 	<header>
-		<h5>Введите пользователь / пароль</h5>	
+		<h2 class="p-2">Заказ в кафе</h2>
+    <h5>Введите E-mail / пароль</h5>	
 	</header>	
 
     <div
     class="form-control"
     [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
     >
-        <label for="email">Email:</label>
+        <label for="email">E-mail:</label>
         <input id="email" type="email" formControlName="email" placeholder="a@mail.ru">
         <div
           *ngIf="form.get('email').touched && form.get('email').invalid"
@@ -60,10 +61,10 @@
 
     <button [routerLink] = "['oder']" class="btn btn-warning block">Открыть весь заказ</button>    
 
-    <button [routerLink] = "['create']" class="btn btn-warning block">Добавить в меню
+    <button [routerLink] = "['create']" class="btn btn-warning block disabled">Добавить в меню
     </button>        
 
-    <button [routerLink] = "['dashboard']" class="btn btn-warning block">Меню в сети</button>
+    <button [routerLink] = "['dashboard']" class="btn btn-warning block disabled">Меню в сети</button>
 
 </div>
 

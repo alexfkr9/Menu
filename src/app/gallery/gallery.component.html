@@ -1,37 +1,38 @@
-<div class="row">
-	<div class="container">
-	<div class="row">
-		<div class="col-lg-2">
-			<h2 class="logo animated fadeIn">Меню</h2>			
-		</div>	
+<div class="row"> 
+	<div class="container-fluid">
+		<div class="row">
 
-		<div class="col-lg-5 ml-auto">
-			<nav class="" >           
-				<button style="color: #00a" class="btn btn-warning" [class.active]="filterBy === 'all'" (click)="filterBy = 'all'">Все</button>
-				<button class="btn btn-warning" [class.active]="filterBy === 'first'" (click)="filterBy = 'first'">Первое</button>
-				<button class="btn btn-warning" [class.active]="filterBy === 'second'" (click)="filterBy = 'second'">Второе</button>
-				<button class="btn btn-warning" [class.active]="filterBy === 'salads'" (click)="filterBy = 'salads'">Салаты</button>
-				<button class="btn btn-warning" [class.active]="filterBy === 'drink'" (click)="filterBy = 'drink'">Напитки</button>
-			</nav>	
+			<div class="col-lg-2">
+				<h2 class="logo head-color animated fadeIn">Меню</h2>	
+			</div>
+
+			<div class="col-lg-6">
+				<nav id="mynavbar" class="navbar navbar-expand-sm">          
+					<button class="btn btn-warning blue" [class.active]="filterBy === 'all'" (click)="filterBy = 'all'">Все</button>
+					<button class="btn btn-warning" [class.active]="filterBy === 'first'" (click)="filterBy = 'first'">Первое</button>
+					<button class="btn btn-warning" [class.active]="filterBy === 'second'" (click)="filterBy = 'second'">Второе</button>
+					<button class="btn btn-warning" [class.active]="filterBy === 'salads'" (click)="filterBy = 'salads'">Салаты</button>
+					<button class="btn btn-warning" [class.active]="filterBy === 'drink'" (click)="filterBy = 'drink'">Напитки</button>
+				</nav>	
+			</div>							
+
 		</div>
 	</div>
-	</div>
 
-	<ul id="thumbnailList" class="row">
-		<li class=" col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex justify-content-center" *ngFor="let image of (images | imageFilter:filterBy)">
+	<div class="row container-fluid">
+	<ul id="thumbnailList" class="gallery">
+		<li class="col-sm-6 col-md-4 col-lg-3 col-xl-2 d-flex justify-content-center" *ngFor="let image of (images | imageFilter:filterBy)">
 			<div class="ticket">
 
 				<a><img src="{{ image.url }}" class="" (click)="nDishGal[image.id-1]=nDishGal[image.id-1]+1; change(nDishGal)"></a>				
-				<h5>{{ image.dish }}</h5>
+				<h5 class="head-color">{{ image.dish }}</h5>
 				<p>Цена: {{ image.prise }} грн / {{ image.weight }}{{ image.unit }}</p>
 				<!-- <p> id: {{ image.id-1 }} </p> -->
 				<p>Кол-во: <input type="number" [(ngModel)] = "nDishGal[image.id-1]" (ngModelChange)="change(nDishGal)"/> шт</p>		   
-				<p> Стоимость: {{ priceGal[image.id-1] }} грн </p>
-							
+				<p> Стоимость: {{ priceGal[image.id-1] }} грн </p>					
 			</div>
 		</li>
 	</ul>
-<br>
+	</div>
 	
-</div>		
-
+</div>

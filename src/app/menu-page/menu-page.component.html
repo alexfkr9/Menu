@@ -1,19 +1,19 @@
-<div>
 
 <!-- Меню в виде картинок -->
 <app-gallery [nDishGal]="nDishGal" [priceGal]="priceGal" (onChanged) = "onChanged($event)"></app-gallery>
 
 <!-- Меню в виде таблицы -->
-<h2>Пользователь {{ userQuantity[0] }}, сумма заказа: {{ totalVal[1] }} грн</h2>
+<div class="bg">
+<h3>Пользователь {{ userQuantity[0] }}, сумма заказа: {{ totalVal[1] }} грн.</h3>
   
-  <h3>Заказ в виде таблицы:</h3>
+  <h3 class="user">Заказ в виде таблицы:</h3>
    <table class="table table-bordered justify-content-center">
      <thead>        
         <th>Блюдо</th>
         <th>Цена</th>
         <th>Ед.изм.</th>
         <th>Кол.</th>
-        <th>Стоимость</th>          
+        <th>Сумма</th>          
                              
      </thead>
 
@@ -21,7 +21,8 @@
       
       <tr>  
        <td class="">                 
-        <tr *ngFor="let dish of arrayDish">
+        <tr *ngFor="let dish of arrayDish"
+             class="text-nowrap">
             {{ dish }}           
         </tr>        
        </td>
@@ -40,10 +41,10 @@
        </td>      
       
         <td>         
-          <tr *ngFor="let userM of userMenuArray[1]; let j = index">  
+          <tr *ngFor="let userM of userMenuArray[1]; let j = index"     class="text-nowrap">
             <input [disabled]="disabled" type="number" [(ngModel)] = "userMenuArray[1][j]" (ngModelChange)="changeHandler(1,j)" /> <!-- Количество -->
 
-              {{ arrayUnit[j] }}       <!-- Единица измерения -->             
+              {{ arrayUnit[j] }}     <!-- Единица измерения -->             
                
           </tr>
         </td>
@@ -59,27 +60,19 @@
       </tr>        
 
       <tr>
-        <td>Итого</td>
+        <td class="blue">Итого</td>
         <td></td>
         <td></td>
         <td></td>
-        <td> {{ totalVal[1] }} грн</td>    <!-- Итого -->
+        <td class="blue"> {{ totalVal[1] }} грн</td>    <!-- Итого -->
       </tr>
-      <tr>
-        <td><button routerLink="/" class="btn btn-warning">Выйти</button></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <button class="btn btn-warning">Заказать</button>
-        </td>        
-      </tr>
+      
+    </tbody>
+  </table>
 
-     </tbody>
-  </table>  
-  
-</div>
+  <button routerLink="/" class="btn btn-warning ml-2 mb-2">Выйти</button>
+               
+  <button class="btn btn-warning float-right mr-2 mb-23">Заказать</button>               
+    
 
-
-
-
+</div>  

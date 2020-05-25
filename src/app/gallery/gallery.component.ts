@@ -16,9 +16,11 @@ export class GalleryComponent implements OnInit {
   	private imageService: ImageService
   	) { 
   		this.images = this.imageService.getImages();
-  		console.log(this.images)
+  		console.log(this.images);     
+
   }
 
+  
   @Input() priceGal: any;
   @Input() nDishGal: any;
 

@@ -1,5 +1,7 @@
 @import "../app.component.scss";
 
-.open {
-  margin-right: 10px;
+div {
+  background: url(../../assets/img/bg.jpg) no-repeat;
+  background-size: cover;  
+  background-attachment: fixed;
 }

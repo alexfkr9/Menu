@@ -1,23 +1,20 @@
 @import "../app.component.scss";
 
+div, table {
+  background: url(../../assets/img/bg.jpg) no-repeat;
+  background-size: cover;  
+  background-attachment: fixed;
+}
+
 * {  
   font-weight: 600;  
 }
 
 table { font-size: 16px; }
 
-input {
-  max-width: 50px;
-  border: none;
-  outline: none;
-  color: #181;  
+input {	
+	width: 50px;	
+	height: 22px;	  	
 }
 
-div, input, button {  
-  background: url(./bg.jpg) no-repeat;
-}
 
-div {	
-	background-size: cover;	
-	text-align: center;  
-}

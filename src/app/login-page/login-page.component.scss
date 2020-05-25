@@ -1,47 +1,60 @@
 @import "../app.component.scss";
 
+div {
+  background: url(../../assets/img/bg.jpg) no-repeat;
+  background-size: cover;  
+  background-attachment: fixed;
+}
+
 * {
 	margin: 0;
   padding: 0;  
 }
 
-div {
-  background: url(./bg.jpg) no-repeat;
-  background-size: cover;  
-  background-attachment: fixed;
-}
-
-.login {    
+.login {   
   max-width: 400px;
   background: none;
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 50%;
+  padding-bottom: 10px;
 }
 
 header {
-  padding: 50px 0;
+  padding: 15px 0;
 }
 
 form {  
   margin: 0 auto;
+  border-color: #050;
 }
 
-input {  
-  border: none;
-  outline: none;  
-  background: #ffa;
-  margin: 6px 5px;  
+.form-control > label {
+  color: #060;
 }
 
 .form-control {
-  position: relative;
-  background: none;
-  margin-bottom: 40px;   
+  border-width: 1px;
+  position: relative;  
+  margin: 0 auto 40px;
+  width: 98%;
+  border-color: #050;
+  background: none;  
+  background-color: #ffa7006a;
+  border-radius: 10px;
+    
 }
 
-.validation {  
-  top: 50px;  
+input {  
+  border: none;   
+  outline: none;  
+  background-color: #ffc70782;
+  margin: 10px 5px;
+  width: 150px;
+  max-height: 23px;
+}
+
+.validation {
+  margin-top: 6px;  
 }
 
 .block {
@@ -50,13 +63,13 @@ input {
 }
 
 button {
-  width: 100%;
+  width: 98%;
 }
 
-small { /*  на удаление
+small {
   position: relative;
   height: 100px;
   width: 100px;
   color: #a00;
-  padding: 100px, auto;*/
+  padding: 100px, auto;
 }

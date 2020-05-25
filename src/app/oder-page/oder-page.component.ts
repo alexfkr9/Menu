@@ -99,10 +99,6 @@ export class OderPageComponent implements OnInit {
           this.oderVal = this.totalVal.reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
       }
 
-      activUser() {                
-          console.log("Hello")
-          this.disabled = true;
-      }
-   
+         
 
 } 

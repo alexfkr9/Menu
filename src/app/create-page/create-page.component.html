@@ -1,37 +1,36 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-  <h1>Создание нового поста</h1>
+<div class="bg d-flex flex-colum">
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <h2>Добавить блюда</h2>
 
-  <div
-    class="form-control"   
-  >
-    <label for="title">Название поста:</label>
-    <input id="title" type="text" formControlName="title">
+    <div
+      class="form-control"   
+    >
+      <label for="title">Название:</label>
+      <input id="title" type="text" formControlName="title">  
+    </div>
+
+    <div class="form-control">
+      <label>Содержание:</label>
+    </div>
+
+    <div
+      class="form-control">
+      <label for="author">Автор:</label>
+      <input id="author" type="text" formControlName="author">
+    </div>
     
-  </div>
-
-  <div class="form-control">
-    <label>Контент поста:</label>
-
-  </div>
-
-  <div
-    class="form-control"
-     >
-    <label for="author">Автор поста:</label>
-    <input id="author" type="text" formControlName="author">    
-  </div>
-
-  
-  <button
-    type="submit"
-    class="btn btn-block btn-dark"
     
-  >Создать пост</button>
-</form>
+    <div class="but">
+      <button
+        type="submit"
+        class="btn btn-warning disabled"    
+      >Добавить</button>
+        
+      <button [routerLink] = "['/dashboard']" class="btn btn-warning disabled">Посмотреть
+      </button>
+    </div>
+  </form>
 
-<br>   
-    <button [routerLink] = "['/dashboard']" class="btn btn-warning btn-sm">Посмотреть пост
-    </button>
-
+</div>
 
 <!-- [disabled]="form.invalid" -->

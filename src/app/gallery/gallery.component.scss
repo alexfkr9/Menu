@@ -1,17 +1,25 @@
 @import "../app.component.scss";
 
+div {
+  background: url(../../assets/img/bg.jpg) no-repeat;
+  background-size: cover;  
+  background-attachment: fixed;
+}
+
 * {  
   margin: 0;
   padding: 0;   
 }
 
 .logo {
-	color: #050;
+	margin-left: 30px;
+	/*display: block;*/
+	/*float: right;*/
 }
 
-/*nav button {
-	flex-direction: column;
-}*/
+nav {
+	margin-left: 30px;
+}
 
 ul {
 	display: flex;
@@ -23,7 +31,7 @@ ul {
 }
 
 .ticket {
-	margin: 6px 6px;
+	margin: 6px;
 	border: 4px solid #eee;
 	border-radius: 8px;
 	box-shadow: #555 1px 1px 5px 1px;
@@ -38,28 +46,81 @@ img {
 }
 
 input {
-	width: 70px;
-	background: #ffc;
+	width: 40px;
+	height: 20px;	
 }
 
 h5 {
-	padding: 1px 6px;
+	padding: 1px 6px;	
 }
 
 p {
 	font-size: 15px;
-	margin: 0;
+	margin-left: 5px;
 	font-weight: 600;
 }
 
-@media screen and (max-width: 576px) {	
-	button {
-		display: block;
-		margin: 2 auto;
-		width: 100%;				
+@media screen and (max-width: 768px) {
+
+	.navbar {		
+		position: fixed;
+		width: 100%;
+		top: 0;
+		margin: 0 auto;		
+		z-index: 1;		
+		background: url(../../assets/img/bg.jpg) no-repeat;
+	  	background-size: cover;  
+		background-attachment: fixed;			
 	}
 
-	.logo {
+	nav button {		
+		width: 100%;						
+	}
+
+	h2.logo {		
+		/*position: relative;*/
+		/*width: 130px;*/
+		margin: 0 auto;
 		text-align: center;
-	}	
+		margin-top: 60px;
+		
+	}
+	
 }
+
+
+@media screen and (max-width: 576px) {		
+
+	h2.logo {		
+		display: block;
+		text-align: center;
+		margin: 160px auto 0;
+	}
+
+	.navbar {		
+		position: fixed;
+		width: 100%;
+		top: 0;
+		margin: 0 auto;		
+		z-index: 1;		
+		background: url(../../assets/img/bg.jpg) no-repeat;
+	  	background-size: cover;  
+		background-attachment: fixed;			
+	}
+
+	nav button {
+		display: block; 
+		margin: 3px auto;
+		width: 48%;
+		/*max-width: 130px;*/
+		font-size: 25px;
+		padding: 1px;				
+	}
+
+	.ticket {		
+		transform: scale(1.5);
+		margin: 70px;			
+	}
+
+}
+
