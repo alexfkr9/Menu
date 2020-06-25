@@ -1,70 +1,85 @@
-<div> 
-<h2>Menu {{ userQuantity[0] }}</h2>
-  
-   <table class="table table-bordered">
+<div *ngIf="menuData.length; else loading">
+
+<!-- Меню в виде таблицы -->
+<div class="bg">
+<h3>Пользователь {{ userQuantity[0] }}, сумма заказа: {{ totalVal[1] }} грн.</h3>
+ 
+  <h3 class="user">Заказ в виде таблицы:</h3>
+   <table class="table table-bordered justify-content-center">
      <thead>        
         <th>Блюдо</th>
         <th>Цена</th>
-        <th>Размерность</th>
-        <th>Кол./Цена</th>          
+        <th>Ед.изм.</th>
+        <th>Кол.</th>
+        <th>Сумма</th>          
                              
      </thead>
 
      <tbody>
       
+      <!-- Блюдо -->
       <tr>  
-       <td>                 
-        <tr *ngFor="let dish of arrayDish">
-            {{ dish }}           
+       <td class="">                 
+        <tr *ngFor="let dish of menuArray; let i = index"
+             class="text-nowrap">
+            {{ menuArray[i].dish }}           
         </tr>        
        </td>
 
-       <td>                 
-        <tr *ngFor="let price of arrayPrice">
-            {{ price }} грн           
+       <!-- Цена -->
+       <td>                
+        <tr *ngFor="let price of menuArray; let i = index">
+            {{ menuArray[i].price }} грн           
         </tr>        
        </td>
 
+       <!-- Ед. изм. -->
        <td>                 
-        <tr *ngFor="let unit of arrayUnit; let i = index">
-            {{ arrayWeight[i] }}
-            {{ unit }}             
+        <tr *ngFor="let unit of menuArray; let i = index">
+            {{ menuArray[i].weight }}
+            {{ menuArray[i].unit }}    <!-- Единица измерения -->         
         </tr>        
-       </td>
+       </td>      
       
-      
-      
+        <!-- Ввод колва -->
         <td>         
-          <tr *ngFor="let userM of userMenuArray[1]; let j = index">  
-            <input [disabled]="disabled" type="number" [(ngModel)] = "userMenuArray[1][j]" (ngModelChange)="changeHandler(1,j)" />
-              {{ arrayUnit[j] }}        
-              
-              {{ arraySum[1][j] }}              
+          <tr *ngFor="let inpVal of menuArray; let i = index"
+               class="text-nowrap">
+            <input type="number" [(ngModel)] = "inp_val[i]"  value="0" placeholder="0" min="0" autofocus="" (ngModelChange)="calcTabe()" />               
+              {{ menuArray[i].unit }}     <!-- Единица измерения --> 
           </tr>
         </td>
+
+        <!-- Сумма -->
+        <td>         
+          <tr *ngFor="let val of menuArray; let i = index">             
+               {{ (menuArray[i].price)*(inp_val[i] || 0) }}  грн   <!-- Стоимость -->    
+                            
+          </tr>
+        </td>
+
       </tr>        
 
       <tr>
-        <td>Итого</td>
+        <td class="blue">Итого</td>
         <td></td>
         <td></td>
-        <td> {{ totalVal[1] }} грн</td>            
+        <td></td>
+        <td class="blue"> {{ oderVal }} грн</td>    <!-- Итого -->
       </tr>
-      <tr>
-        <td><button routerLink="/" class="btn btn-warning">Выйти</button></td>
-        <td></td>
-        <td></td>
-        <td>
-          <button class="btn btn-warning">Заказать</button>
-        </td>        
-      </tr>
+      
+    </tbody>
+  </table>
 
-     </tbody>
-  </table>  
-
-<!-- <button (click)="remove()">Удалить </button> -->
+  <button routerLink="/" class="btn btn-warning ml-2 mb-2">Выйти</button>
+               
+  <button (click)="send()" class="btn btn-warning float-right mr-2 mb-23">Заказать</button>     
+    
+   
+</div>
 
 </div>
 
-
-<app-create-page></app-create-page>
+<ng-template #loading>
+  <p class="text-center">Идет загрузка...</p>
+</ng-template> 

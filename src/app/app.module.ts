@@ -20,6 +20,8 @@ import {SharedModule} from './shared/shared.module';
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
 
 import {CreatePageComponent} from './create-page/create-page.component';
+import {EditPageComponent} from './edit-page/edit-page.component';
+import {RemovePageComponent} from './remove-page/remove-page.component';
 import { GalleryComponent } from './gallery/gallery.component';
 
 
@@ -31,6 +33,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     MenuPageComponent,
     OderPageComponent,
     CreatePageComponent,
+    EditPageComponent,
+    RemovePageComponent,
     DashboardPageComponent,
     GalleryComponent,   
     ImageFilter

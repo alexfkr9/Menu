@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService} from '../shared/http.service';
 
+// import {Post} from '../shared/interfaces';
+import {PostsService} from '../shared/posts.service';
+
 
 @Component({
   selector: 'app-menu-page',
@@ -10,7 +13,7 @@ import { HttpService} from '../shared/http.service';
 })
 export class MenuPageComponent implements OnInit {
 
-  totalValue: number;
+    totalValue: number;
     totalVal: any=[];
     oderVal: any;     
     userList: any=[];   
@@ -34,10 +37,10 @@ export class MenuPageComponent implements OnInit {
     priceGal: any=[];
 
     nDishGal: any=[];  
-
     
     
-    constructor(private httpService: HttpService){};
+    constructor(private httpService: HttpService                 
+      ){};
 
   
       
@@ -51,7 +54,8 @@ export class MenuPageComponent implements OnInit {
     getData(event: any) {
       this.httpService.getData().subscribe(
         data => {  
- 			this.oderData = data;
+ 			this.oderData = data;      
+          // console.log(this.oderData);
           // create array of menuList 
           this.menuArray = this.oderData.menuList.slice();  // copy data array of menuList
           this.nMenu = this.menuArray.length;
@@ -69,12 +73,11 @@ export class MenuPageComponent implements OnInit {
     
 
     calcTabe(increased?) {
-console.log(increased);
 
 
           for( var i = 0; this.menuArray[i]; i++ ){
                 this.arrayDish[i] = this.menuArray[i].dish;
-                this.arrayPrice[i] = this.menuArray[i].prise;
+                this.arrayPrice[i] = this.menuArray[i].price;
                 this.arrayUnit[i] = this.menuArray[i].unit;
                 this.arrayWeight[i] = this.menuArray[i].weight;
           }                                      
@@ -107,13 +110,11 @@ console.log(increased);
               this.priceGal = this.arraySum.slice(1,2).shift(); //для галлереи
               // console.log("priceGal ");console.log(this.priceGal);
 
-
               this.oderVal = this.totalVal.reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
                  
     }
 
       
-
       // Расчет стоимости
       changeHandler(a: number,b: number) {  
 
@@ -133,6 +134,7 @@ console.log(increased);
           console.log("Hello")
           this.disabled = true;
       }
-   
+
+                    
 
 }

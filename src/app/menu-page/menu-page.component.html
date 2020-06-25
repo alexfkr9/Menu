@@ -42,7 +42,7 @@
       
         <td>         
           <tr *ngFor="let userM of userMenuArray[1]; let j = index"     class="text-nowrap">
-            <input [disabled]="disabled" type="number" [(ngModel)] = "userMenuArray[1][j]" (ngModelChange)="changeHandler(1,j)" /> <!-- Количество -->
+            <input [disabled]="disabled" type="number" min="0" autofocus="" [(ngModel)] = "userMenuArray[1][j]" (ngModelChange)="changeHandler(1,j)" /> <!-- Количество -->
 
               {{ arrayUnit[j] }}     <!-- Единица измерения -->             
                

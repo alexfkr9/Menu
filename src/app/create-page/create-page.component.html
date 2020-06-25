@@ -10,8 +10,9 @@
     </div>
 
     <div class="form-control">
-      <label>Содержание:</label>
-    </div>
+      <label for="text">Содержание:</label>
+      <input id="text" type="text" formControlName="text">
+    </div>    
 
     <div
       class="form-control">
@@ -23,11 +24,15 @@
     <div class="but">
       <button
         type="submit"
-        class="btn btn-warning disabled"    
+        class="btn btn-warning"    
       >Добавить</button>
         
-      <button [routerLink] = "['/dashboard']" class="btn btn-warning disabled">Посмотреть
+      <button [routerLink] = "['/dashboard']" class="btn btn-warning">Посмотреть
       </button>
+
+      <button [routerLink] = "['/remove']" class="btn btn-warning">Удалить
+      </button>    
+
     </div>
   </form>
 

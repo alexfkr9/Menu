@@ -5,6 +5,8 @@ import {LoginPageComponent} from './login-page/login-page.component';
 import {OderPageComponent} from './oder-page/oder-page.component';
 
 import {CreatePageComponent} from './create-page/create-page.component';
+import {EditPageComponent} from './edit-page/edit-page.component';
+import {RemovePageComponent} from './remove-page/remove-page.component';
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
 import {GalleryComponent} from './gallery/gallery.component';
 
@@ -16,7 +18,9 @@ const routes: Routes = [
 	{path: 'menu', component: MenuPageComponent},
   {path: 'oder', component: OderPageComponent},
   {path: 'create', component: CreatePageComponent},
-  {path: 'dashboard', component: DashboardPageComponent}  
+  {path: 'edit', component: EditPageComponent},
+  {path: 'dashboard', component: DashboardPageComponent},
+  {path: 'remove', component: RemovePageComponent}
 ];
 
 @NgModule({

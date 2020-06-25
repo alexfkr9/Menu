@@ -1,0 +1,56 @@
+<!-- <button
+          class="btn btn-link open"
+          [routerLink]="['/admin', 'post', post.id, 'edit']"
+        >
+          Открыть
+        </button> -->
+ 
+
+{{ posts | json}}
+<div *ngIf="posts.length; else loading">
+  <div class="form-control">
+    <input type="text" placeholder="Найти пост..." [(ngModel)]="searchStr">
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Автор</th>
+      <th>Id</th>
+      <th>Дата</th>
+      <th>Действие</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let post of posts; let idx = index">
+      <td>{{ idx + 1 }}</td>
+      <td>{{ post.user }}</td>
+      <td>{{ post.id }}</td>
+      <td>{{ post.date | date:'medium' }}</td>
+      <td>
+        <button
+          class="btn btn-link open"
+          [routerLink]="['/admin', 'post', post.id, 'edit']"
+        >
+          Открыть
+        </button>
+        <button class="btn">
+        <a (click)="remove(post.id)">Удалить</a>
+      </button> <br>
+      <button class="btn btn-link open">Удалить всех</button> 
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
+
+<ng-template #loading>
+  <p class="text-center">Идет загрузка...</p>
+</ng-template>
+
+
+
+
