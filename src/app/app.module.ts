@@ -17,9 +17,7 @@ import {ImageService} from './shared/image.service';
 import {ImageFilter} from './shared/filter.pipe';
 import {AuthService} from './shared/services/auth.service';
 import {SharedModule} from './shared/shared.module';
-import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
 
-import {CreatePageComponent} from './create-page/create-page.component';
 import { GalleryComponent } from './gallery/gallery.component';
 
 
@@ -29,9 +27,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     AppComponent,
     LoginPageComponent,
     MenuPageComponent,
-    OderPageComponent,
-    CreatePageComponent,
-    DashboardPageComponent,
+    OderPageComponent,        
     GalleryComponent,   
     ImageFilter
   ],

@@ -1,138 +1,105 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpService} from '../shared/http.service';
+import {Component, OnDestroy, OnInit, AfterViewChecked} from '@angular/core';
+import {Subscription} from 'rxjs';
+
+import {PostsService} from '../shared/posts.service';
+import {Post} from '../shared/interfaces';
+
 
 
 @Component({
   selector: 'app-menu-page',
   templateUrl: './menu-page.component.html',
-  styleUrls: ['./menu-page.component.scss'],
-  providers: [HttpService] 
+  styleUrls: ['./menu-page.component.scss']
 })
+
 export class MenuPageComponent implements OnInit {
 
-  totalValue: number;
-    totalVal: any=[];
-    oderVal: any;     
-    userList: any=[];   
-    menuList: any=[];
-    nUser: number;
-    nMenu: number;    
-    userMenuArray: any =[];
-    menuArray: any =[];
-    userArray: any =[];        
-    arrayDish: any =[];
-    arrayPrice: any =[];
-    arrayUnit: any =[];
-    arrayWeight: any =[];    
-    arraySum: any =[];
-    sum: any =[];    
-    userQuantity: any =[];    
-    disabled = false;
-
-    oderData: any;
+   
+    totalVal = [];
+    oderVal: number;    
     
-    priceGal: any=[];
-
-    nDishGal: any=[];  
-
-    
-    
-    constructor(private httpService: HttpService){};
-
-  
+    menuArray = [];
+       
+    arraySum = [];
+    sum = [];    
+    userQuantity = [];
       
-    ngOnInit(){
-       // this.httpService.getUsers().subscribe(data => this.users=data);
-
-       this.getData(1);
-    };
-
- 
-    getData(event: any) {
-      this.httpService.getData().subscribe(
-        data => {  
- 			this.oderData = data;
-          // create array of menuList 
-          this.menuArray = this.oderData.menuList.slice();  // copy data array of menuList
-          this.nMenu = this.menuArray.length;
-
-          // create array of user
-          this.userList = this.oderData.userList.slice();   // copy data array of userList
-          this.nUser = this.userList.length;
-
-          this.calcTabe();
-          
-        } 
-      ) 
-    }
-
+    menuData: any = {};
     
+    menuList: Post[] = []
+    pSub: Subscription
+
+    price: number;
+
+    inp_val: any = [];   
+
+    menuArrlength: number = 0;
+    arr = [];
+
+    userName:string;
+      
+    
+  constructor(private postsService: PostsService) {
+  }
+
+  ngOnInit() {
+
+    this.pSub = this.postsService.getAll().subscribe(menuList => {      
+      this.menuData = menuList; 
+           
+      // create array of menuList 
+      this.menuArray = this.menuData[0].menuList.slice();  // copy data array of menuArray       
+      this.menuArrlength = this.menuArray.length;
+      this.createArr(this.menuArrlength);      
+        
+    })      
+    
+}
+
+  createArr(l:number) {    
+    this.arr = new Array(l);        
+    for(var i = 0;i<l; i++) { 
+      this.arr[i] = 0;
+      this.arraySum[i] = 0;   
+    }
+    this.inp_val = this.arr.slice();     
+  }
+
+        
 
     calcTabe(increased?) {
-console.log(increased);
-
-
-          for( var i = 0; this.menuArray[i]; i++ ){
-                this.arrayDish[i] = this.menuArray[i].dish;
-                this.arrayPrice[i] = this.menuArray[i].prise;
-                this.arrayUnit[i] = this.menuArray[i].unit;
-                this.arrayWeight[i] = this.menuArray[i].weight;
-          }                                      
-              
-              for( var i = 0; i < this.nUser; i++) {
-                this.userArray = this.userList[i].slice();
-                this.userQuantity[i] = this.userArray[0].slice();    // create array of user name                          
-                this.userMenuArray[i] = this.userList[i].slice();
-                this.userMenuArray[i].shift(); // delete user name                                                      
-                this.totalValue = 0;
-                if (increased) {console.log("increased");
-                  this.userMenuArray[1] = increased.slice();
-                }
-                  // counting of user menu cost
-                  for (var j=0; j < this.nMenu; j++) { 
-                    this.sum[j] = (this.arrayPrice[j]*this.userMenuArray[i][j]);
-                    this.totalValue = this.totalValue + this.sum[j];
-                  
-                  }
-             
-                this.arraySum[i] = this.sum.slice();                
-                this.totalVal[i] = this.totalValue;
-                                           
-              }
-
-               // console.log("userMenuArray ");console.log(this.userMenuArray);
-               this.nDishGal = this.userMenuArray.slice(1,2).shift(); //input для галлереи                   
-               // console.log("nDishGal ");console.log(this.nDishGal);
-
-              this.priceGal = this.arraySum.slice(1,2).shift(); //для галлереи
-              // console.log("priceGal ");console.log(this.priceGal);
-
-
-              this.oderVal = this.totalVal.reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
-                 
+      for( var i = 0; this.inp_val.length; i++ ){
+            this.arraySum[i] = (this.menuArray[i].price)*(this.inp_val[i] || 0);                    
+            this.oderVal = this.arraySum.reduce(function(sum: number, elem: number) 
+              { return sum + elem;}, 0);        
+      }   
+            
     }
 
-      
 
-      // Расчет стоимости
-      changeHandler(a: number,b: number) {  
-
-          this.arraySum[a][b] = this.userMenuArray[a][b]*this.arrayPrice[b];
-          this.totalVal[a] = this.arraySum[a].reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
-          this.oderVal = this.totalVal.reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
-         
-      }
-
-      // Обращение из галлереи
-      onChanged(increased:any ) {
-        // console.log(increased);
+    // Обращение из галлереи
+      onChanged(increased:any ) {        
         this.calcTabe(increased);        
       }
 
-      activUser() {                
-          console.log("Hello")
-          this.disabled = true;
+
+
+    // Добавить в базу заказ
+    send() {
+      
+      const post: any = {      
+        date: new Date(),
+        userName: this.userName,
+        user: this.inp_val                
       }
-   
+
+      this.postsService.create(post).subscribe(() => {
+        this.oderVal = 0;
+        this.userName = "";
+        this.createArr(this.menuArrlength)        
+      })
+
+    }
+                             
 
 }

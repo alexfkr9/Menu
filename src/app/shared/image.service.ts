@@ -20,7 +20,7 @@ const IMAGES = [
       "category": "first", 
       "dish" : "Борщ",
       "url":"assets/img/borsh.jpg",
-      "prise" : 15,            
+      "price" : 15,            
       "unit": "п",
       "weight": 1           
     },
@@ -29,7 +29,7 @@ const IMAGES = [
       "category": "first", 
       "dish" : "Суп",
       "url":"assets/img/soup.jpg",
-      "prise" : 17,
+      "price" : 17,
       "unit": "п",
       "weight": 1           
     },
@@ -38,7 +38,7 @@ const IMAGES = [
       "category": "second", 
       "dish" : "Мясо",
       "url":"assets/img/steak.jpg",
-      "prise" : 20,
+      "price" : 20,
       "unit": "г",
       "weight": 100            
     },
@@ -47,7 +47,7 @@ const IMAGES = [
       "category": "second", 
       "dish" : "Рыба",
       "url":"assets/img/fish.jpg",
-      "prise" : 18,
+      "price" : 18,
       "unit": "г",
       "weight": 100            
     },
@@ -56,7 +56,7 @@ const IMAGES = [
       "category": "second", 
       "dish" : "Картошка",
       "url":"assets/img/potato.jpg",
-      "prise" : 8,
+      "price" : 8,
       "unit": "г",
       "weight": 100            
     },
@@ -65,7 +65,7 @@ const IMAGES = [
       "category": "salads", 
       "dish" : "Оливье",
       "url":"assets/img/oliv.jpg",
-      "prise" : 14,
+      "price" : 14,
       "unit": "г",
       "weight": 100            
     },
@@ -74,7 +74,7 @@ const IMAGES = [
       "category": "salads", 
       "dish" : "Селедка под шубой",
       "url":"assets/img/shuba.jpg",
-      "prise" : 16,
+      "price" : 16,
       "unit": "г",
       "weight": 100            
     },
@@ -83,7 +83,7 @@ const IMAGES = [
       "category": "salads", 
       "dish" : "Помидоры, огурцы",
       "url":"assets/img/tomato.jpg",
-      "prise" : 10,
+      "price" : 10,
       "unit": "г",
       "weight": 100            
     },
@@ -92,7 +92,7 @@ const IMAGES = [
       "category": "drink", 
       "dish" : "Сок",
       "url":"assets/img/juice.jpg",
-      "prise" : 14,
+      "price" : 14,
       "unit": "л",
       "weight": 0.3            
     },
@@ -101,7 +101,7 @@ const IMAGES = [
       "category": "drink", 
       "dish" : "Пиво",
       "url":"assets/img/beer.jpg",
-      "prise" : 20,
+      "price" : 20,
       "unit": "л",
       "weight": 0.5            
     },
@@ -110,7 +110,7 @@ const IMAGES = [
       "category": "drink", 
       "dish" : "Вино",
       "url":"assets/img/wine.jpg",
-      "prise" : 20,
+      "price" : 20,
       "unit": "л",
       "weight": 0.1          
     }

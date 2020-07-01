@@ -1,4 +1,5 @@
-<div>  
+<div *ngIf="userList.length; else loading">
+
 <h3>Меню компании</h3>
   
    <table class="table table-bordered text-center">
@@ -6,8 +7,9 @@
         <th>Блюдо</th>
         <th>Цена</th>
         <th>Ед.изм.</th>
-        <th *ngFor="let User of userQuantity; let i = index">
-           <div> {{ User }} </div>
+        <th *ngFor="let user of userList; let i = index">
+           <div *ngIf="user.userName"> {{ user.userName }} </div>
+           <div *ngIf="!user.userName"> Гость {{ i+1 }} </div>
         </th>
         <th>Сумма</th>        
                              
@@ -16,60 +18,66 @@
      <tbody>
       
       <tr>        
-
+        
+        <!-- вывести меню пользователей       -->
        <td class="text-nowrap">                 
-        <tr *ngFor="let dish of arrayDish"
+        <tr *ngFor="let dish of menuArray; let i = index"
             class="text-left">
-            {{ dish }}           
+            {{ menuArray[i].dish }}           
         </tr>        
        </td>
 
        <td>                 
-        <tr *ngFor="let price of arrayPrice" 
+        <tr *ngFor="let price of menuArray; let i = index" 
             class="d-flex justify-content-center">
-            {{ price }}             
+           {{ menuArray[i].price }} грн             
         </tr>        
        </td>
 
        <td>                 
-        <tr *ngFor="let unit of arrayUnit; let i = index" 
+        <tr *ngFor="let unit of menuArray; let i = index" 
             class="d-flex justify-content-center">
-            {{ arrayWeight[i] }}
-            {{ unit }}             
+            {{ menuArray[i].weight }}
+            {{ menuArray[i].unit }}  <!-- Единица измерения -->             
         </tr>        
        </td>
+       
 
-               
-        <td *ngFor="let userMenu of userMenuArray; let i = index" class="px-0">         
-          <tr *ngFor="let userM of userMenu; let j = index">
+         <!-- вывести заказы пользователей       -->
+        <td *ngFor="let userL of userList; let i = index" class="">        
+          <tr *ngFor="let id of userL.user; let j = index">
             <div class="container">              
               <div class="row">
                 <div class="col-5">
-                  <input [disabled]="disabled" type="number" [(ngModel)] = "userMenuArray[i][j]" (ngModelChange)="changeHandler(i,j)" />
+                  <!-- {{ userArray[i][j] }} -->
+                   <input [disabled]="" type="number" min="0" [(ngModel)] = "userArray[i][j]" (ngModelChange)="changeHandler(i,j)" />           
                 </div>
-                <div class="col-1">
-                    {{ arrayUnit[j] }}
+                <div class="col-1 p-0">
+                    {{ menuArray[j].unit }}    <!-- Единица измерения -->
                 </div>
-                <div class="col-4">                                 
-                    <!-- {{ arrayPrice[j] * userMenuArray[i][j] }} -->
+                <div class="col-5">                                 
+                    <!-- {{ userArray[i][j] * menuArray[j].price }} -->
                     {{ arraySum[i][j] }}
                 </div>    
               </div>
             </div>                
           </tr>
         </td>
+
         <td>
+          <!-- <tr *ngFor="let user of menuArray; let j = index">            
+          </tr> -->  
         </td>
 
       </tr>
       
       <tr>
-        <td class="blue">Итого</td>
+        <td class="blue">Итого, грн</td>
         <td></td>
         <td></td>
-        <td *ngFor="let total of totalVal">                 
+        <td *ngFor="let userL of userList; let i = index">                 
             <tr class="blue d-flex justify-content-center">
-                {{ total }}            
+                {{ userSum[i] }}            
             </tr>        
        </td>
        <td class="blue text-center"> {{ oderVal }} </td>
@@ -79,20 +87,26 @@
         <td><button routerLink="/" class="btn btn-warning">Выйти</button></td>
         <td></td>
         <td></td>        
-        <td class="">
-          <button class="btn btn-warning d-flex mx-auto">Принять</button>
-        </td>
-        <td class="">
-          <button class="btn btn-warning d-flex mx-auto">Принять</button>
-        </td>
-        <td class="">
-          <button class="btn btn-warning d-flex mx-auto">Принять</button>
-        </td>
-        <td class="">
-          <button class="btn btn-warning d-flex mx-auto">Принять</button>
-        </td>     
-      </tr>
+        <td *ngFor="let user of userList" class="">          
+          <button (click)="update(user)"
+                  [routerLink] =  "['/oder']"              
+                  class="btn btn-warning d-flex mx-auto">            
+                  Изменить
+          </button>
+          <button (click)="remove(user.id)"
+                  [routerLink] =  "['/oder']"              
+                  class="btn btn-warning d-flex mx-auto">            
+                  Удалить
+          </button>
+        </td>           
+      </tr>      
+
      </tbody>
   </table>
 
+
 </div>
+
+<ng-template #loading>
+  <p class="text-center">Идет загрузка...</p>
+</ng-template>

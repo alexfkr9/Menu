@@ -21,8 +21,10 @@ export class GalleryComponent implements OnInit {
   }
 
   
-  @Input() priceGal: any;
-  @Input() nDishGal: any;
+  @Input() arraySum: any; //Сумма за блюдо
+  @Input() inp_val: any; //Кол-во блюд
+
+  
 
   @Output() onChanged = new EventEmitter<any>();
     change(increased:any) {      
@@ -30,6 +32,8 @@ export class GalleryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
+  
 }

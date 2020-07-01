@@ -1,103 +1,148 @@
-import { Component, OnInit} from '@angular/core';
-import { HttpService} from '../shared/http.service';
-  
-   
+import {Component, OnDestroy, OnInit, AfterViewChecked} from '@angular/core';
+import {interval, Subscription} from 'rxjs';
+
+import {PostsService} from '../shared/posts.service';
+import {Post} from '../shared/interfaces';
+
+// для редактирования
+// import {ActivatedRoute, Params} from '@angular/router'; 
+// import {switchMap} from 'rxjs/operators'; 
+// import {FormControl, FormGroup, Validators} from '@angular/forms';
+
+
 @Component({
     selector: 'app-oder-page',
     templateUrl: './oder-page.component.html',
-    styleUrls: ['./oder-page.component.scss'],
-    providers: [HttpService] 
+    styleUrls: ['./oder-page.component.scss']     
 })
+
 export class OderPageComponent implements OnInit { 
      
-    totalValue: number;
-    totalVal: any=[];
-    oderVal: any;     
-    userList: any=[];   
-    menuList: any=[];
-    nUser: number;
-    nMenu: number;    
-    userMenuArray: any =[];
+    oderVal: number = 0;         
+    
     menuArray: any =[];
     userArray: any =[];        
-    arrayDish: any =[];
-    arrayPrice: any =[];
-    arrayUnit: any =[];
-    arrayWeight: any =[];    
-    arraySum: any =[];
-    sum: any =[];    
-    userQuantity: any =[];    
-    disabled = false;
-
-    oderData: any;
-
-                  
-    
-    constructor(private httpService: HttpService){};
-
-  
       
-    ngOnInit(){
-       // this.httpService.getUsers().subscribe(data => this.users=data);
-       
-       this.getData(1);      
-    };
- 
-    getData(event: any) {
-      this.httpService.getData().subscribe(
-        data => {  
- 			this.oderData = data;
-          // create array of menuList
-          this.menuArray = this.oderData.menuList.slice();  // copy data array of menuList
-          this.nMenu = this.menuArray.length;
+    arraySum: any =[];
+    sum: any =[];
 
-          // create array of user
-          this.userList = this.oderData.userList.slice();   // copy data array of userList
-          this.nUser = this.userList.length;
+    userSum: any =[];
+   
+    userList: Post[] = []
+    menuData: any = {};
+    menuArrlength: number = 0;
 
-          this.calcTabe(1);
-          
-        } 
-      ) 
-    }
+    menuList: Post[] = []
+    pSub: Subscription
+    uSub: Subscription
+    dSub: Subscription
+    sub: Subscription
+               
+    
+    constructor(private postsService: PostsService) {
+        // const intervalStream$ = interval(10000)
 
-    calcTabe(event: any) {
+        // this.sub = intervalStream$.subscribe((value) => {            
+        //     this.ngOnInit()
+        // })
+    }  
+      
+    ngOnInit() {
 
-          for( var i = 0; this.menuArray[i]; i++ ){
-                this.arrayDish[i] = this.menuArray[i].dish;
-                this.arrayPrice[i] = this.menuArray[i].prise;
-                this.arrayUnit[i] = this.menuArray[i].unit;
-                this.arrayWeight[i] = this.menuArray[i].weight;
-          }                                      
-              
-              for( var i = 0; i < this.nUser; i++) {
-                this.userArray = this.userList[i].slice();
-                this.userQuantity[i] = this.userArray[0].slice();    // create array of user name            
-                this.userMenuArray[i] = this.userList[i].slice();
-                this.userMenuArray[i].shift();              // delete user name
-                                
-                this.totalValue = 0;
-                  // counting of user menu cost
-                  for (var j=0; j < this.nMenu; j++) { 
-                    this.sum[j] = (this.arrayPrice[j]*this.userMenuArray[i][j]);
-                    this.totalValue = this.totalValue + this.sum[j];
-                  }
-                this.arraySum[i] = this.sum.slice();
-                this.totalVal[i] = this.totalValue;
-                                            
-              }
-              
-              this.oderVal = this.totalVal.reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
-
+      //получить меню:
+      this.pSub = this.postsService.getAll().subscribe(menuList => {      
+        this.menuData = menuList; 
+             
+        // create array of menuList: 
+        this.menuArray = this.menuData[0].menuList.slice();  // copy data array of menuArray 
         
+        this.menuArrlength = this.menuArray.length;        
+      })   
+     
+
+      //получить заказы пользователей:
+      
+        this.uSub = this.postsService.getAllUsers().subscribe(
+          dataU => {
+            this.userList = dataU;         
+            this.calcTabe(this.userList)
+            console.log("this.userList"); console.log(this.userList)
+          }         
+        )
+      }
+
+      
+
+
+    // расчет данных таблицы:
+    calcTabe(usList:any) {
+              console.log("usList"); console.log(usList)               
+
+              for( let i = 0; i < usList.length; i++) { 
+                this.userArray[i] = usList[i].user; 
+                
+                  //   стоимость блюда с учетом количества:
+                  for (var j=0; j < this.userArray[0].length; j++) {                    
+                   
+                    this.sum[j] = (this.menuArray[j].price*this.userArray[i][j]);
+                                          
+                  }
+
+                this.arraySum[i] = this.sum.slice();
+
+                //   стоимость заказа отдельного пользователя:
+                this.userSum[i] = this.arraySum[i].reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
+                                                             
+              }
+
+              //   стоимость всего заказа:
+              this.oderVal = this.userSum.reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
+       
     }
 
-      // Расчет стоимости
-      changeHandler(a: number,b: number) {                
-          this.arraySum[a][b] = this.userMenuArray[a][b]*this.arrayPrice[b];
-          this.totalVal[a] = this.arraySum[a].reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
-          this.oderVal = this.totalVal.reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
+      // Расчет стоимости после редактирования заказа:
+      changeHandler(a: number,b: number) {  
+          if (this.userArray[a][b] == undefined) 
+                {this.userArray[a][b] = 0};          
+          this.arraySum[a][b] = this.userArray[a][b]*this.menuArray[b].price;
+          this.userSum[a] = this.arraySum[a].reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
+          this.oderVal = this.userSum.reduce(function(sum: number, elem: number) { return sum + elem;}, 0);
+      
+
       }
+
+
+      // Удалить пользователя
+    remove(id?: string) {
+          this.dSub = this.postsService.remove(id).subscribe(() => {
+              this.userList = this.userList.filter(user => user.id !== id);
+              // this.userArray.length = 0;
+              this.sum.length = 0;
+              // this.arraySum.length = 0;
+              this.userSum.length = 0;              
+              // this.oderVal = 0;
+              this.calcTabe(this.userList)         
+          })          
+    }
+
+    
+
+    // Редактирование меню пользователей в базе
+    update(post: any) {console.log("post"); console.log(post)
+        this.postsService.update(post).subscribe()
+    }
+
+
+      // Отписаться
+    ngOnDestroy() {
+          if (this.pSub) {
+              this.pSub.unsubscribe()
+          }
+
+          if (this.dSub) {
+              this.dSub.unsubscribe()
+          }
+    }
 
          
 
