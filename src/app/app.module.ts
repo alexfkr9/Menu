@@ -12,6 +12,7 @@ import { HttpClientModule }   from '@angular/common/http';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MenuPageComponent } from './menu-page/menu-page.component';
 import { OderPageComponent } from './oder-page/oder-page.component';
+import { AdminPageComponent } from './admin-page/admin-page.component';
 
 import {ImageService} from './shared/image.service';
 import {ImageFilter} from './shared/filter.pipe';
@@ -27,7 +28,8 @@ import { GalleryComponent } from './gallery/gallery.component';
     AppComponent,
     LoginPageComponent,
     MenuPageComponent,
-    OderPageComponent,        
+    OderPageComponent,
+    AdminPageComponent,        
     GalleryComponent,   
     ImageFilter
   ],

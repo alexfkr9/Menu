@@ -33,6 +33,7 @@ export class LoginPageComponent implements OnInit {
     })
   }
 
+  // вход в меню с авторизацией
   submit() { 
     if (this.form.invalid) {
       return
