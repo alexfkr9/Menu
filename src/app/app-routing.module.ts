@@ -10,11 +10,14 @@ import {GalleryComponent} from './gallery/gallery.component';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
+import { SocialLoginComponent } from './social-login/social-login.component';
+
 const routes: Routes = [	
 	{path: '', component: LoginPageComponent},
 	{path: 'menu', component: MenuPageComponent},
   	{path: 'oder', component: OderPageComponent},
-  	{path: 'admin', component: AdminPageComponent}  
+  	{path: 'admin', component: AdminPageComponent},
+  	{path: 'social', component: SocialLoginComponent} 
 ];
 
 @NgModule({

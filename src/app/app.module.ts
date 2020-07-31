@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {CommonModule} from '@angular/common'; 
+import {CommonModule} from '@angular/common';
+
+import {SocialLogModule} from './social-login/social-login.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +43,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     FormsModule,
     ReactiveFormsModule,    
     HttpClientModule,
+    SocialLogModule
   ],
   providers: [AuthService, ImageService],
   bootstrap: [AppComponent]
