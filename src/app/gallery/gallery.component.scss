@@ -12,9 +12,7 @@ div {
 }
 
 .logo {
-	margin-left: 30px;
-	/*display: block;*/
-	/*float: right;*/
+	margin-left: 30px;	
 }
 
 nav {
@@ -65,11 +63,7 @@ p {
 	.logo {
 		text-align: center;
 		margin-left: 0;
-	}
-
-	.gallery {
-		margin-top: 90px;
-	}
+	}	
 
 	.navbar {		
 		position: fixed;
@@ -85,15 +79,14 @@ p {
 	button {
 		display: block; 
 		margin: 3px auto;
-		width: 48%;
-		/*max-width: 130px;*/
+		width: 48%;		
 		font-size: 25px;
 		padding: 1px;				
 	}
 
 	.ticket {		
 		transform: scale(1.5);
-		margin: 70px;			
+		margin: 70px;				
 	}
 
 }

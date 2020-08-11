@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {FbAuthResponse, User} from '../../shared/interfaces';
-import {Observable} from 'rxjs';
-import {environment} from '../../../environments/environment';
-import {tap} from 'rxjs/operators';
+import {Injectable} from '@angular/core'
+import {HttpClient} from '@angular/common/http'
+import {FbAuthResponse, User} from '../../shared/interfaces'
+import {Observable} from 'rxjs'
+import {environment} from '../../../environments/environment'
+import {tap} from 'rxjs/operators'
 
 @Injectable()
 export class AuthService {

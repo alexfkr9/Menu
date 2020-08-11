@@ -1,4 +1,4 @@
-<div *ngIf="userList.length; else loading">
+<div *ngIf="userList.length; else loading"  class="px-2">
 
 <h3>Меню компании</h3>
   
@@ -10,6 +10,7 @@
         <th *ngFor="let user of userList; let i = index">
            <div *ngIf="user.userName"> {{ user.userName }} </div>
            <div *ngIf="!user.userName"> Гость {{ i+1 }} </div>
+           <div *ngIf="user.foto"><img src="{{ user.foto }}"></div>
         </th>
         <th>Сумма</th>        
                              

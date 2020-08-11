@@ -1,11 +1,11 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-// import { SocialLoginRoutingModule } from './social-login-routing.module';
-import { SocialLoginComponent } from './social-login.component';
+import { BrowserModule } from '@angular/platform-browser'
+import { NgModule } from '@angular/core'
+// import { SocialLoginRoutingModule } from './social-login-routing.module'
+import { SocialLoginComponent } from './social-login.component'
 
 // Importing social login module and google login provider.
-import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-import { from } from 'rxjs';
+import { SocialLoginModule, AuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login'
+import { from } from 'rxjs'
  
 
  
@@ -17,7 +17,7 @@ import { from } from 'rxjs';
 //2538444313043851
 // https://developers.google.com/identity/sign-in/web/sign-in#before_you_begin
 
-const google_oauth_client_id:string = '461068843179-9dqf2i8omtfrbe5e425m53kcuvqk69h7.apps.googleusercontent.com';
+const google_oauth_client_id:string = '461068843179-9dqf2i8omtfrbe5e425m53kcuvqk69h7.apps.googleusercontent.com'
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -29,7 +29,7 @@ let config = new AuthServiceConfig([
   }
 ]);
 export function provideConfig() {
-  return config;
+  return config
 }
 @NgModule({
   declarations: [

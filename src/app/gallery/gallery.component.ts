@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core'
 import { ImageService } from '../shared/image.service'
 
 @Component({
@@ -8,25 +8,23 @@ import { ImageService } from '../shared/image.service'
 })
 export class GalleryComponent implements OnInit {
 
-	images: any = [];
+	images: any = []
 
-  filterBy?: string = 'all';
+  filterBy?: string = 'all'
 
   constructor(
   	private imageService: ImageService
   	) { 
-  		this.images = this.imageService.getImages();
-  		console.log(this.images);     
-
+  		this.images = this.imageService.getImages()
   }
 
   
-  @Input() arraySum: any; //Сумма за блюдо
-  @Input() inp_val: any; //Кол-во блюд
+  @Input() arraySum: any //Сумма за блюдо
+  @Input() inp_val: any //Кол-во блюд
 
   
 
-  @Output() onChanged = new EventEmitter<any>();
+  @Output() onChanged = new EventEmitter<any>()
     change(increased:any) {      
       this.onChanged.emit(increased)         
   }

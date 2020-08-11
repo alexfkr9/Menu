@@ -1,96 +1,116 @@
-
-
-
 <!-- Идет загрузка страницы -->
 <div *ngIf="menuData.length; else loading"> 
 
-<!-- Меню в виде картинок -->
-<app-gallery [inp_val]="inp_val" [arraySum]="arraySum" (onChanged) = "onChanged($event)"></app-gallery>
-
-<!-- Меню в виде таблицы -->
 <div class="bg">
+  <div class="max-width mx-auto">
 
-<!-- Ввод имени пользователя -->
-<h3>Имя:  
-  <input class="name" type="text" [(ngModel)] = "userName"  placeholder="Имя" />
- </h3>
+    <div class="head_menu">
+      <h4 class="head-color">Добро пожаловать</h4>
 
-<!-- <h3 *ngIf="userName">Посетитель: {{ userName }}</h3> -->
-<h3 *ngIf="oderVal">Cумма заказа: {{ oderVal }} грн<button (click)="send()" class="btn btn-warning ml-3">Заказать</button></h3>
+      <!-- Данные пользователя из соцсетей -->
+      <div *ngIf="someSrv.userSocial.firstName">    
+        
+        <img src="{{ someSrv.userSocial.photoUrl }}" class="rounded-circle mx-auto d-block">
+        <h4 class="head-color"> {{ someSrv.userSocial.firstName }} </h4>
+      </div>
+
+      <h4 class="head-color"> в наше кафе </h4>
+      <h5>Желаете что нибудь заказать ?</h5>      
+    </div>
+
+    <!-- Меню в виде картинок -->
+    <app-gallery [inp_val]="inp_val" [arraySum]="arraySum" (onChanged) = "onChanged($event)"></app-gallery>
 
 
-  <h3 class="user">Заказ в виде таблицы:</h3>
-   <table class="table table-bordered justify-content-center">
-     <thead>        
-        <th>Блюдо</th>
-        <th>Цена</th>
-        <th>Ед.изм.</th>
-        <th>Кол.</th>
-        <th>Сумма</th>          
-                             
-     </thead>
+    <!-- Ввод имени пользователя -->
+    <h4>Ваше Имя:
+      <div *ngIf="someSrv.userSocial.name">
+        <input class="name" type="text" [(ngModel)] = "someSrv.userSocial.name"  placeholder="Имя" />
+      </div>
+      <div *ngIf="!someSrv.userSocial.name">
+        <input class="name" type="text" [(ngModel)] = "userName"  placeholder="Имя" />
+      </div>
+     </h4>
 
-     <tbody>
-      
-      <!-- Блюдо -->
-      <tr>  
-       <td class="">                 
-        <tr *ngFor="let dish of menuArray; let i = index"
-             class="text-nowrap">
-            {{ menuArray[i].dish }}           
-        </tr>        
-       </td>
+    <!-- <h3 *ngIf="userName">Посетитель: {{ userName }}</h3> -->
+    <h3 *ngIf="oderVal">Cумма заказа: {{ oderVal }} грн
+      <button (click)="send()" class="btn btn-warning ml-3">Заказать</button>
+    </h3>
 
-       <!-- Цена -->
-       <td>                
-        <tr *ngFor="let price of menuArray; let i = index">
-            {{ menuArray[i].price }} грн           
-        </tr>        
-       </td>
 
-       <!-- Ед. изм. -->
-       <td>                 
-        <tr *ngFor="let unit of menuArray; let i = index">
-            {{ menuArray[i].weight }}
-            {{ menuArray[i].unit }}    <!-- Единица измерения -->         
-        </tr>        
-       </td>      
-      
-        <!-- Ввод колва -->
-        <td>         
-          <tr *ngFor="let inpVal of menuArray; let i = index"
+    <h3 class="user">Заказ в виде таблицы:</h3>
+    <div class="px-2">
+      <table class="table table-bordered justify-content-center px-5">
+       <thead>        
+          <th>Блюдо</th>
+          <th>Цена</th>
+          <th>Ед.изм.</th>
+          <th>Кол.</th>
+          <th>Сумма</th>          
+                               
+       </thead>
+
+       <tbody>
+        
+        <!-- Блюдо -->
+        <tr>  
+         <td class="">                 
+          <tr *ngFor="let dish of menuArray; let i = index"
                class="text-nowrap">
-            <input type="number" [(ngModel)] = "inp_val[i]"  value="0" placeholder="0" min="0" autofocus="" (ngModelChange)="calcTabe()" />               
-              {{ menuArray[i].unit }}     <!-- Единица измерения --> 
-          </tr>
-        </td>
+              {{ menuArray[i].dish }}           
+          </tr>        
+         </td>
 
-        <!-- Сумма -->
-        <td>         
-          <tr *ngFor="let val of menuArray; let i = index">             
-               {{ (menuArray[i].price)*(inp_val[i] || 0) }}  грн   <!-- Стоимость -->    
-                            
-          </tr>
-        </td>
+         <!-- Цена -->
+         <td>                
+          <tr *ngFor="let price of menuArray; let i = index">
+              {{ menuArray[i].price }} грн           
+          </tr>        
+         </td>
 
-      </tr>        
+         <!-- Ед. изм. -->
+         <td>                 
+          <tr *ngFor="let unit of menuArray; let i = index">
+              {{ menuArray[i].weight }}
+              {{ menuArray[i].unit }}    <!-- Единица измерения -->         
+          </tr>        
+         </td>      
+        
+          <!-- Ввод колва -->
+          <td>         
+            <tr *ngFor="let inpVal of menuArray; let i = index"
+                 class="text-nowrap">
+              <input type="number" [(ngModel)] = "inp_val[i]"  value="0" placeholder="0" min="0" autofocus="" (ngModelChange)="calcTabe()" />               
+                {{ menuArray[i].unit }}     <!-- Единица измерения --> 
+            </tr>
+          </td>
 
-      <tr>
-        <td class="blue">Итого</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="blue"> {{ oderVal }} грн</td>    <!-- Итого -->
-      </tr>
-      
-    </tbody>
-  </table>
+          <!-- Сумма -->
+          <td>         
+            <tr *ngFor="let val of menuArray; let i = index">             
+                 {{ (menuArray[i].price)*(inp_val[i] || 0) }}  грн   <!-- Стоимость -->    
+                              
+            </tr>
+          </td>
 
-  <button routerLink="/" class="btn btn-warning ml-2 mb-2">Отменить</button>
-               
-  <button (click)="send()" class="btn btn-warning float-right mr-2 mb-2">Заказать</button>     
+        </tr>        
+
+        <tr>
+          <td class="blue">Итого</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="blue"> {{ oderVal }} грн</td>    <!-- Итого -->
+        </tr>
+        
+      </tbody>
+      </table>
+    </div>
+    <button (click)="signOut()" routerLink="/" class="btn btn-warning ml-2 mb-2">Отменить</button>
+                 
+    <button (click)="send()" class="btn btn-warning float-right mr-2 mb-2">Заказать</button>     
     
-   
+  </div>   
 </div>
 
 </div>

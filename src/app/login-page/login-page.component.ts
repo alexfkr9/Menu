@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core'
-import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {User} from './interfaces';
-import {Router} from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms'
+import {User} from './interfaces'
+import {Router} from '@angular/router'
 
-import {AuthService} from '../shared/services/auth.service';
+import {fromEvent} from 'rxjs'// +++++++++
+
+import {AuthService} from '../shared/services/auth.service'
 
 @Component({
   selector: 'app-login-page',
@@ -16,11 +18,13 @@ export class LoginPageComponent implements OnInit {
  
   constructor(
     private router: Router,
-    private auth: AuthService    
-  ) {
+    private auth: AuthService
+
+  ) { 
   }
 
-  ngOnInit() {
+  ngOnInit() {    
+
     this.form = new FormGroup({
       email: new FormControl(null, [
         Validators.required,

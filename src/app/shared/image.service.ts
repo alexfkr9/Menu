@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
 
 @Injectable()
 
 export class ImageService {
 
-	visibleImage = [];
+	visibleImage = []
 
 	getImages() {
-		return this.visibleImage = IMAGES;
+		return this.visibleImage = IMAGES
 	}
 
 }

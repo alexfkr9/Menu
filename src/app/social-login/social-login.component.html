@@ -1,16 +1,24 @@
-<p>
+<!-- <p>
   {{title}}
-</p>
- 
-<button (click)="singIn('Google');">Sign in with Google</button><br /><br />
-<button (click)="signOut();">Sign out</button><br /><br />
+</p> -->
 
-<button (click)="singInFacebook();">Sign in with Facebook</button><br /><br />
-<button (click)="signOut();">Sign out</button><br /><br />
+<div class="d-flex">
+	<button (click)="singIn('Google')" class="btn btn-warning block w-100">
+		<span class="fa fa-google"> Google</span>	
+	</button>
+
+	<button (click)="singInFacebook()" class="btn btn-warning block w-100">
+		<span class="fa fa-facebook"> Facebook</span>	
+	</button>
+</div>
+
+<br />
+<br />
+
+<!-- <button (click)="signOut();">Sign out</button><br /><br /> -->
  
 <div *ngIf="user">
   <img src="{{ user.photoUrl }}">
   <h4>{{ user.name }}</h4>
   <p>{{ user.email }}</p>
 </div>
-<h3>hello raj</h3>

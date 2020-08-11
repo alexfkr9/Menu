@@ -37,9 +37,9 @@ export interface Get {
     arrayWeight: any    
     arraySum: any
     sum: any  
-    userQuantity: any;    
-    disabled: boolean;
-    oderData: any;
+    userQuantity: any   
+    disabled: boolean
+    oderData: any
 }
  
 export interface FbCreateResponse {
